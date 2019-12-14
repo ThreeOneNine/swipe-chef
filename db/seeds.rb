@@ -35,20 +35,37 @@ collections.each_with_index do |collection, i|
     recipe_url = a['href']
     full_recipe_url = base_url + recipe_url.strip.downcase
     recipe_doc = Nokogiri::HTML(open(full_recipe_url).read)
+
+    # Contains info on prep/cook times, serving no. and difficulty
     raw_details = recipe_doc.search('.recipe-details__text')
+    times_string = raw_details[0].inner_text # Cook and prep times
+
+    # Regex used to isolate serving number from details
     serving_regex = /^(\s|[a-zA-Z])*(?<number>\d*)/
 
+    # Regex used to isolate prep/cook time section from times_string
     prep_time_isolation_regex = /Prep:\s*(?<prep_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
     cook_time_isolation_regex = /Cook:\s*(?<cook_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
 
-    time_hours_isolation_regex = /((?<hrs>\d*)\s*hrs?)/
-    time_mins_isolation_regex = /((?<mins>\d*)\s*mins?)/
+    # Capture groups used to assign matches to variables. Regex is only administered is there are matches to avoid errors
+    prep_times_isolated = times_string.match(prep_time_isolation_regex)["prep_times"] if prep_time_isolation_regex.match?(times_string)
+    cook_times_isolated = times_string.match(cook_time_isolation_regex)["cook_times"] if cook_time_isolation_regex.match?(times_string)
+
+    # Regex used to isolate time described in terms of hours/minutes from the above prep/cook time strings
+    time_hours_regex = /((?<hrs>\d*)\s*hrs?)/
+    time_mins_regex = /((?<mins>\d*)\s*mins?)/
+
+    # To avoid errors, above regex is only applied if there are any matches. Time set to 0 default
+    prep_time_hrs = (time_hours_regex.match?(prep_times_isolated) ? prep_times_isolated.match(time_hours_regex)["hrs"].to_i : 0 )
+    prep_time_mins = (time_mins_regex.match?(prep_times_isolated) ? prep_times_isolated.match(time_mins_regex)["mins"].to_i : 0 )
+    cook_time_hrs = (time_hours_regex.match?(cook_times_isolated) ? cook_times_isolated.match(time_hours_regex)["hrs"].to_i : 0 )
+    cook_time_mins = (time_mins_regex.match?(cook_times_isolated) ? cook_times_isolated.match(time_mins_regex)["mins"].to_i : 0 )
 
     recipe = Recipe.create( title: a.inner_text.strip,
                             img_url: recipe_doc.search('.recipe-header img').first['src'][2..-1],
                             description: recipe_doc.search('.recipe-header__description').first.inner_text.strip,
-                            # prep_time: prep_hours_in_mins + prep_mins,
-                            # cook_time: cook_hours_in_mins + cook_mins,
+                            prep_time: (prep_time_mins + (prep_time_hrs * 60)),
+                            cook_time: (cook_time_mins + (cook_time_hrs * 60)),
                             serves: raw_details[2].inner_text.match(serving_regex)["number"],
                             difficulty: raw_details[1].inner_text.strip,
                             category: collection,
