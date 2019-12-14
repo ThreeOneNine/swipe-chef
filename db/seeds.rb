@@ -1,5 +1,3 @@
-require 'open-uri'
-
 puts "Deleting records"
 Ingredient.destroy_all
 Step.destroy_all
