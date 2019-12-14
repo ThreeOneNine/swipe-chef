@@ -38,11 +38,11 @@ collections.each_with_index do |collection, i|
     raw_details = recipe_doc.search('.recipe-details__text')
     serving_regex = /^(\s|[a-zA-Z])*(?<number>\d*)/
 
-    prep_time_regex = /Prep:\s*(?<prep_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
-    cook_time_regex = /Cook:\s*(?<cook_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
+    prep_time_isolation_regex = /Prep:\s*(?<prep_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
+    cook_time_isolation_regex = /Cook:\s*(?<cook_times>\d*\s*(mins|hrs?)((\s|,)*\d*\s*(mins|hrs?))?)/
 
-    time_hours_regex = /((?<hrs>\d*)\s*hrs?)/
-    time_mins_regex = /((?<mins>\d*)\s*mins?)/
+    time_hours_isolation_regex = /((?<hrs>\d*)\s*hrs?)/
+    time_mins_isolation_regex = /((?<mins>\d*)\s*mins?)/
 
     recipe = Recipe.create( title: a.inner_text.strip,
                             img_url: recipe_doc.search('.recipe-header img').first['src'][2..-1],
