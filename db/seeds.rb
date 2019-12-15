@@ -28,13 +28,17 @@ collections.each_with_index do |collection, i|
   puts "Creating recipes in collection #{i + 1} of #{collections.length}"
   collection_url = base_url + '/recipes/collection/' + collection
   collection_doc = Nokogiri::HTML(open(collection_url).read)
-  recipe_urls = []
   collection_doc.search('.teaser-item__title a').each do |a|
-    recipe_url = a['href']
-    full_recipe_url = base_url + recipe_url.strip.downcase
-    recipe_doc = Nokogiri::HTML(open(full_recipe_url).read)
+    recipe_path = a['href'].strip.downcase
+    recipe_url = base_url + recipe_path
+    recipe_doc = Nokogiri::HTML(open(recipe_url).read)
 
-    # Contains info on prep/cook times, serving no. and difficulty
+    # Finding img_url and removing itoken suffix
+    img_token_regex = /(?<itok>\?.*$)/
+    img_url = recipe_doc.search('.recipe-header img').first['src'][2..-1] # Removing // prefix
+    img_url = img_url[0...(img_url.length - img_url.match(img_token_regex)["itok"].length)]
+
+    # Contains in§o on prep/cook times, serving no. and difficulty
     raw_details = recipe_doc.search('.recipe-details__text')
     times_string = raw_details[0].inner_text # Cook and prep times
 
@@ -60,7 +64,7 @@ collections.each_with_index do |collection, i|
     cook_time_mins = (time_mins_regex.match?(cook_times_isolated) ? cook_times_isolated.match(time_mins_regex)["mins"].to_i : 0 )
 
     recipe = Recipe.create( title: a.inner_text.strip,
-                            img_url: recipe_doc.search('.recipe-header img').first['src'][2..-1],
+                            img_url: img_url,
                             description: recipe_doc.search('.recipe-header__description').first.inner_text.strip,
                             prep_time: (prep_time_mins + (prep_time_hrs * 60)),
                             cook_time: (cook_time_mins + (cook_time_hrs * 60)),
