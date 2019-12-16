@@ -23,6 +23,10 @@ name_arr.each do |name|
   collections.shuffle.sample(rand(0..5)).each do |category|
     UserCategory.create(user: user, category: category)
   end
+  UserPreference.create(user: user,
+                        max_cooking_time: (rand(1..12) * 10), # Between 10 mins and 2 hrs
+                        cook_for_min: rand(1..3),
+                        cook_for_max: rand(4..10))
 end
 
 collections.each_with_index do |collection, i|
