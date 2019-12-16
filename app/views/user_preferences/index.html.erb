@@ -1,6 +1,10 @@
-<h1>Max cooking time: <%= @user_preference.max_cooking_time %></h1>
-<h1>Min servings: <%= @user_preference.cook_for_min %></h1>
-<h1>Max servings: <%= @user_preference.cook_for_max %></h1>
+<% if @user_preference.id? %>
+  <h1>Max cooking time: <%= @user_preference.max_cooking_time %></h1>
+  <h1>Min servings: <%= @user_preference.cook_for_min %></h1>
+  <h1>Max servings: <%= @user_preference.cook_for_max %></h1>
+<% else %>
+  <h1>Set some preferences below!</h1>
+<% end %>
 
 <%= simple_form_for @user_preference do |f| %>
   <%= f.input :max_cooking_time %>
@@ -8,4 +12,5 @@
   <%= f.input :cook_for_max %>
   <%= f.button :submit %>
 <% end %>
+
 
