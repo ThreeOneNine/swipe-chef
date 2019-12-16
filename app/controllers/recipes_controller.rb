@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = recipes_based_on_preference || Recipe.all
-    @recipes.sample(20)
+    @recipes = @recipes.sample(20)
   end
 
   def show
