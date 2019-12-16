@@ -1,5 +1,4 @@
-<% @user_preferences.each do |user_preference| %>
-  <h1>Max cooking time: <%= user_preference.max_cooking_time %></h1>
-  <h1>Min servings: <%= user_preference.cook_for_min %></h1>
-  <h1>Max servings: <%= user_preference.cook_for_max %></h1>
-<% end %>
+<h1>Max cooking time: <%= @user_preference.max_cooking_time %></h1>
+<h1>Min servings: <%= @user_preference.cook_for_min %></h1>
+<h1>Max servings: <%= @user_preference.cook_for_max %></h1>
+
