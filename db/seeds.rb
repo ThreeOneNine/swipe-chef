@@ -8,7 +8,7 @@ User.destroy_all
 
 base_url = 'https://www.bbcgoodfood.com'
 
-# Add new collections below to widen the database (each collection creates a new category)
+# Add new good food collections below to widen the database (each collection creates a new category)
 collections = %w[ batch-cooking
                   healthy-breakfast
                   easy-impressive
@@ -78,9 +78,18 @@ collections.each_with_index do |collection, i|
                             difficulty: raw_details[1].inner_text.strip,
                             category: collection,
                             video_url: '')
-    recipe_doc.search('.ingredients-list__item').each do |ingredient|
+
+    # Creating ingredient from each ingredient HTML element
+    recipe_doc.search('.ingredients-list__item').each_with_index do |ingredient_li|
+      ingredient_text = ingredient_li.inner_text
+
+      # Using regex to remove tooltip text from ingredient description (if tooltip exists)
+      if ingredient_li.children.children.children.any?
+        tooltip_regex = /#{Regexp.quote(ingredient_li.children.children.children.inner_text)}/
+        ingredient_text.gsub!(tooltip_regex, '')
+      end
       Ingredient.create(recipe: recipe,
-                        description: ingredient.inner_text)
+                        description: ingredient_text.strip)
     end
     recipe_doc.search('.method__item').each_with_index do |method, i|
       Step.create(recipe: recipe,
