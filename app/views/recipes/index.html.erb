@@ -1,15 +1,12 @@
 <% @recipes.each do |recipe| %>
-<h1><%= recipe.title %></h1>
 <img src="<%= recipe.img_url %>" alt="">
-<p>description: <%= recipe.description %></p>
+<h1><%= recipe.title %></h1>
 <p>prep time: <%= recipe.prep_time %></p>
 <p>cook time: <%= recipe.cook_time %></p>
 <p>serves: <%= recipe.serves %></p>
 <p>difficulty: <%= recipe.difficulty %></p>
 <p>#ingredients: <%= recipe.ingredients_count %></p>
 <p>category: <%= recipe.category %></p>
-<% recipe.steps.reverse.each do |step| %>
-<p><%= step.number %>: <%= step.description %></p>
-<% end %>
+<%= link_to 'COOK ME', recipe_path(recipe) %>
 <hr>
 <% end %>
