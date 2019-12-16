@@ -1,1 +1,18 @@
-show.html.erb
+<img src="<%= @recipe.img_url %>" alt="">
+<h1><%= @recipe.title %></h1>
+<p>description: <%= @recipe.description %></p>
+<p>prep time: <%= @recipe.prep_time %></p>
+<p>cook time: <%= @recipe.cook_time %></p>
+<p>serves: <%= @recipe.serves %></p>
+<p>difficulty: <%= @recipe.difficulty %></p>
+<p>category: <%= @recipe.category %></p>
+<p>ingredients (<%= @recipe.ingredients.count %>):</p>
+<% @recipe.ingredients.each do |ingredient| %>
+<p><%= ingredient.description %></p>
+<% end %>
+<p>steps:</p>
+<% @recipe.steps.reverse.each do |step| %>
+<p><%= step.number %>: <%= step.description %></p>
+<% end %>
+
+
