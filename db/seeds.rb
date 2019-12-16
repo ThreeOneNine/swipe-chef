@@ -6,14 +6,6 @@ UserCategory.destroy_all
 UserPreference.destroy_all
 User.destroy_all
 
-puts "Creating users"
-User.create(email: "rob@swipechef.com", password: '123456')
-User.create(email: "emma@swipechef.com", password: '123456')
-User.create(email: "joe@swipechef.com", password: '123456')
-User.create(email: "ben@swipechef.com", password: '123456')
-User.create(email: "tilly@swipechef.com", password: '123456')
-User.create(email: "ollie@swipechef.com", password: '123456')
-
 base_url = 'https://www.bbcgoodfood.com'
 
 # Add new collections below to widen the database
@@ -23,6 +15,15 @@ collections = %w[ batch-cooking
                   under-20-minutes
                   vegetarian-comfort-food
                   gluten-free]
+
+puts "Creating users with random categories and preferences"
+name_arr = %w[rob emma joe ben tilly ollie]
+name_arr.each do |name|
+  user = User.create(email: "#{name}@swipechef.com", password: '123456')
+  collections.shuffle.sample(rand(0..5)).each do |category|
+    UserCategory.create(user: user, category: category)
+  end
+end
 
 collections.each_with_index do |collection, i|
   puts "Creating recipes in collection #{i + 1} of #{collections.length}"
