@@ -8,19 +8,20 @@ User.destroy_all
 
 base_url = 'https://www.bbcgoodfood.com'
 
-# Add new collections below to widen the database
+# Add new collections below to widen the database (each collection creates a new category)
 collections = %w[ batch-cooking
                   healthy-breakfast
                   easy-impressive
                   under-20-minutes
                   vegetarian-comfort-food
                   gluten-free]
+collections.each { |collection| Category.create(name: collection) }
 
 puts "Creating users with random categories and preferences"
 name_arr = %w[rob emma joe ben tilly ollie]
 name_arr.each do |name|
   user = User.create(email: "#{name}@swipechef.com", password: '123456')
-  collections.shuffle.sample(rand(0..5)).each do |category|
+  Category.all.shuffle.sample(rand(0..5)).each do |category|
     UserCategory.create(user: user, category: category)
   end
   UserPreference.create(user: user,
@@ -90,10 +91,7 @@ collections.each_with_index do |collection, i|
   end
 end
 
-# To do:
-# Create user categories and preferences
-
-# Nutrition scrape
+# Nutrition details available, scrape method below
 # recipe_doc.search('.nutrition li').each do |li|
 #   nutrition_item = []
 #   li.search('span').each { |span| nutrition_item << span.inner_text }
