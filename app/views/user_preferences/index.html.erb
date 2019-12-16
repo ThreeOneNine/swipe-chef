@@ -2,3 +2,10 @@
 <h1>Min servings: <%= @user_preference.cook_for_min %></h1>
 <h1>Max servings: <%= @user_preference.cook_for_max %></h1>
 
+<%= simple_form_for @user_preference do |f| %>
+  <%= f.input :max_cooking_time %>
+  <%= f.input :cook_for_min %>
+  <%= f.input :cook_for_max %>
+  <%= f.button :submit %>
+<% end %>
+

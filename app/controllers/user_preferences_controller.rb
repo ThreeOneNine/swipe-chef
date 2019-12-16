@@ -6,6 +6,7 @@ class UserPreferencesController < ApplicationController
 
   def update
     @user_preference.update(strong_params)
+    render :index
   end
 
   private
