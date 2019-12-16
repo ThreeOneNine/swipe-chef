@@ -6,35 +6,45 @@ UserCategory.destroy_all
 UserPreference.destroy_all
 User.destroy_all
 
-puts "Creating users"
-User.create(email: "rob@swipechef.com", password: '123456')
-User.create(email: "emma@swipechef.com", password: '123456')
-User.create(email: "joe@swipechef.com", password: '123456')
-User.create(email: "ben@swipechef.com", password: '123456')
-User.create(email: "tilly@swipechef.com", password: '123456')
-User.create(email: "ollie@swipechef.com", password: '123456')
-
 base_url = 'https://www.bbcgoodfood.com'
 
-# Add new collections below to widen the database
+# Add new good food collections below to widen the database (each collection creates a new category)
 collections = %w[ batch-cooking
                   healthy-breakfast
                   easy-impressive
                   under-20-minutes
                   vegetarian-comfort-food
                   gluten-free]
+collections.each { |collection| Category.create(name: collection) }
+
+puts "Creating users with random categories and preferences"
+name_arr = %w[rob emma joe ben tilly ollie]
+name_arr.each do |name|
+  user = User.create(email: "#{name}@swipechef.com", password: '123456')
+  Category.all.shuffle.sample(rand(0..5)).each do |category|
+    UserCategory.create(user: user, category: category)
+  end
+  UserPreference.create(user: user,
+                        max_cooking_time: (rand(1..12) * 10), # Between 10 mins and 2 hrs
+                        cook_for_min: rand(1..3),
+                        cook_for_max: rand(4..10))
+end
 
 collections.each_with_index do |collection, i|
   puts "Creating recipes in collection #{i + 1} of #{collections.length}"
   collection_url = base_url + '/recipes/collection/' + collection
   collection_doc = Nokogiri::HTML(open(collection_url).read)
-  recipe_urls = []
   collection_doc.search('.teaser-item__title a').each do |a|
-    recipe_url = a['href']
-    full_recipe_url = base_url + recipe_url.strip.downcase
-    recipe_doc = Nokogiri::HTML(open(full_recipe_url).read)
+    recipe_path = a['href'].strip.downcase
+    recipe_url = base_url + recipe_path
+    recipe_doc = Nokogiri::HTML(open(recipe_url).read)
 
-    # Contains info on prep/cook times, serving no. and difficulty
+    # Finding img_url and removing itoken suffix
+    img_token_regex = /(?<itok>\?.*$)/
+    img_url = recipe_doc.search('.recipe-header img').first['src'][2..-1] # Removing // prefix
+    img_url = img_url[0...(img_url.length - img_url.match(img_token_regex)["itok"].length)]
+
+    # Contains in§o on prep/cook times, serving no. and difficulty
     raw_details = recipe_doc.search('.recipe-details__text')
     times_string = raw_details[0].inner_text # Cook and prep times
 
@@ -60,7 +70,7 @@ collections.each_with_index do |collection, i|
     cook_time_mins = (time_mins_regex.match?(cook_times_isolated) ? cook_times_isolated.match(time_mins_regex)["mins"].to_i : 0 )
 
     recipe = Recipe.create( title: a.inner_text.strip,
-                            img_url: recipe_doc.search('.recipe-header img').first['src'][2..-1],
+                            img_url: img_url,
                             description: recipe_doc.search('.recipe-header__description').first.inner_text.strip,
                             prep_time: (prep_time_mins + (prep_time_hrs * 60)),
                             cook_time: (cook_time_mins + (cook_time_hrs * 60)),
@@ -68,9 +78,18 @@ collections.each_with_index do |collection, i|
                             difficulty: raw_details[1].inner_text.strip,
                             category: collection,
                             video_url: '')
-    recipe_doc.search('.ingredients-list__item').each do |ingredient|
+
+    # Creating ingredient from each ingredient HTML element
+    recipe_doc.search('.ingredients-list__item').each do |ingredient_li|
+      ingredient_text = ingredient_li.inner_text
+
+      # Using regex to remove tooltip text from ingredient description (if tooltip exists)
+      if ingredient_li.children.children.children.any?
+        tooltip_regex = /#{Regexp.quote(ingredient_li.children.children.children.inner_text)}/
+        ingredient_text.gsub!(tooltip_regex, '')
+      end
       Ingredient.create(recipe: recipe,
-                        description: ingredient.inner_text)
+                        description: ingredient_text.strip)
     end
     recipe_doc.search('.method__item').each_with_index do |method, i|
       Step.create(recipe: recipe,
@@ -81,10 +100,7 @@ collections.each_with_index do |collection, i|
   end
 end
 
-# To do:
-# Create user categories and preferences
-
-# Nutrition scrape
+# Nutrition details available, scrape method below
 # recipe_doc.search('.nutrition li').each do |li|
 #   nutrition_item = []
 #   li.search('span').each { |span| nutrition_item << span.inner_text }
