@@ -1,18 +1,59 @@
-<img src="<%= @recipe.img_url %>" alt="">
-<h1><%= @recipe.title %></h1>
-<p>description: <%= @recipe.description %></p>
-<p>prep time: <%= @recipe.prep_time %></p>
-<p>cook time: <%= @recipe.cook_time %></p>
-<p>serves: <%= @recipe.serves %></p>
-<p>difficulty: <%= @recipe.difficulty %></p>
-<p>category: <%= @recipe.category %></p>
-<p>ingredients (<%= @recipe.ingredients.count %>):</p>
-<% @recipe.ingredients.each do |ingredient| %>
-<p><%= ingredient.description %></p>
-<% end %>
-<p>steps:</p>
-<% @recipe.steps.reverse.each do |step| %>
-<p><%= step.number %>: <%= step.description %></p>
-<% end %>
+
+  <div class="row recipe-show-card">
+    <div class="col-sm-12 col-md-12 col-lg-5 p-0">
+      <div class="show-card-container-left">
+        <div class="recipe-header-hidden">
+          <h1><%= @recipe.title %></h1>
+          <span>prep time: <%= @recipe.prep_time %></span>
+          <span>cook time: <%= @recipe.cook_time %></span>
+          <span>serves: <%= @recipe.serves %></span>
+          <span>difficulty: <%= @recipe.difficulty %></span>
+          <span>category: <%= @recipe.category %></span>
+        </div>
+        <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
+        <div class="recipe-summary">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-7 p-0">
+      <div class="show-card-container-right">
+        <div class="recipe-header">
+          <h1><%= @recipe.title %></h1>
+          <span>prep time: <%= @recipe.prep_time %></span>
+          <span>cook time: <%= @recipe.cook_time %></span>
+          <span>serves: <%= @recipe.serves %></span>
+          <span>difficulty: <%= @recipe.difficulty %></span>
+          <span>category: <%= @recipe.category %></span>
+        </div>
+        <div class="row recipe-steps-and-ingredients">
+          <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7 p-0">
+            <div class="recipe-steps">
+              <h2>DESCRIPTION</h2>
+              <p><%= @recipe.description %></p>
+              <% counter = 1 %>
+              <h2>STEP <%= counter %>/<%= @recipe.steps.count %></h2>
+              <%= @recipe.steps[counter - 1][:description] %>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 p-0">
+            <div class="recipe-ingredients">
+              <h2>INGREDIENTS</h2>
+              <table>
+                <% @recipe.ingredients.each do |ingredient| %>
+                <tr>
+                  <td><%= ingredient.description %></td>
+                </tr>
+                <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 
