@@ -2,7 +2,7 @@
   display:flex;
   margin: 5vh auto;
   width: 80%;
-  box-shadow: 0px 0px 10px #CDCDCD;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
   @include media-breakpoint-down(md) {
    width: 60%;
    margin: 5% auto 0 auto;
@@ -34,6 +34,19 @@
   @include media-breakpoint-down(md) {
     display: none;
   }
+}
+
+.recipe-metrics {
+  display:flex;
+  justify-content: space-between;
+}
+
+.recipe-metrics i {
+  font-size: 30px;
+}
+
+.recipe-metrics span {
+  font-size: 12px;
 }
 
 .recipe-header-hidden {
@@ -91,4 +104,12 @@ tr:nth-child(odd) {
 
 .recipe-show-card h2 {
   font-size: 25px;
+}
+
+.recipe-category {
+  background: none;
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 3px;
 }
