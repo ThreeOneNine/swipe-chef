@@ -6,14 +6,33 @@
   height: 100vh;
   width: 20%;
   margin: 0;
-  background: white;
+  // background: white;
   display:flex;
+  flex-direction: column;
   justify-content:center;
   align-items: center;
-  writing-mode: vertical-rl;
+  // writing-mode: vertical-rl;
+  transform: rotate(-90deg);
   text-orientation: upright;
-  font-size: 50px;
+  font-size: 12vh;
+  white-space: nowrap;
 }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+
+
+
 
 
 .full-page-banner-img {
