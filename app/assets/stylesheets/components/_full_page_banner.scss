@@ -1,0 +1,38 @@
+.full-page-banner-container {
+  display:flex;
+}
+
+.full-page-banner-title {
+  height: 100vh;
+  width: 20%;
+  margin: 0;
+  background: white;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 50px;
+}
+
+
+.full-page-banner-img {
+  background-image: url('https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  flex-grow: 1;
+}
+
+ .full-page-banner-img a {
+    position:absolute;
+    bottom:0;
+    right:0;
+    padding: 20px;
+    text-decoration:none;
+    color: white;
+    font-size: 30px;
+    text-align: right;
+    width: 300px;
+}
