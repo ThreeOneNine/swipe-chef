@@ -1,0 +1,72 @@
+.recipe-index-show-card {
+  background: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  display: flex;
+  margin: 0 auto;
+
+  @include media-breakpoint-up(xs) {
+    width: 90vw;
+    height: 80vh;
+    margin-bottom: 10vh;
+    margin-top: 1.5vh;
+  }
+
+  @include media-breakpoint-up(sm) {
+    width: 90vw;
+    height: 80vh;
+    margin-bottom: 10vh;
+    margin-top: 5vh;
+  }
+  @include media-breakpoint-up(md) {
+    width: 80vw;
+    height: 60vh;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 60vw;
+    height: 60vh;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 60vw;
+    height: 60vh;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+  }
+}
+
+.recipe-index-card-image-wrapper {
+  width: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.recipe-index-card-text-wrapper {
+  width: 50%;
+  overflow: hidden;
+  padding-right: 5%;
+
+}
+
+
+.recipe-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 300%;
+  font-weight: 200;
+  line-height: 60px;
+  margin: 10px 0;
+  @include media-breakpoint-up(xs) {
+    font-size: 200%;
+  }
+  @include media-breakpoint-up(sm) {
+    font-size: 300%;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 300%;
+  }
+}
