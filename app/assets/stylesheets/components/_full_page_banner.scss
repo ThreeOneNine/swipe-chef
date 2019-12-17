@@ -6,10 +6,7 @@
   height: 100vh;
   width: 20%;
   margin: 0;
-  // background: white;
-  // writing-mode: vertical-rl;
   display:flex;
-  flex-direction: column;
   justify-content:center;
   align-items: center;
   transform: rotate(-90deg);
@@ -28,13 +25,18 @@
 }
 
  .full-page-banner-img a {
-    position:absolute;
-    bottom:0;
-    right:0;
-    padding: 20px;
-    text-decoration:none;
-    color: white;
-    font-size: 30px;
-    text-align: right;
-    width: 300px;
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding: 20px;
+  text-decoration:none;
+  color: white;
+  font-size: 30px;
+  text-align: right;
+  width: 300px;
+}
+
+.icon-sizing-home{
+  font-size: 13vh;
+  margin-left: 30px;
 }

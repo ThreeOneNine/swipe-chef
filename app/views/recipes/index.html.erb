@@ -1,12 +1,16 @@
 <% @recipes.each do |recipe| %>
-<img src="<%= recipe.img_url %>" alt="">
-<h1><%= recipe.title %></h1>
-<p>prep time: <%= recipe.prep_time %></p>
-<p>cook time: <%= recipe.cook_time %></p>
-<p>serves: <%= recipe.serves %></p>
-<p>difficulty: <%= recipe.difficulty %></p>
-<p>#ingredients: <%= recipe.ingredients_count %></p>
-<p>category: <%= recipe.category %></p>
-<%= link_to 'COOK ME', recipe_path(recipe) %>
-<hr>
+  <div class='recipe-index-show-card'>
+    <div class='recipe-index-card-text-wrapper'>
+      <h1 class='recipe-card-title'><%= recipe.title %></h1>
+      <p><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
+      <p><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
+      <p><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+      <p>Difficulty: <%= recipe.difficulty %></p>
+      <p>#Ingredients: <%= recipe.ingredients_count %></p>
+      <p>Category: <%= recipe.category.capitalize %></p>
+      <%= link_to 'COOK ME', recipe_path(recipe) %>
+    </div >
+    <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'>
+    </div>
+  </div>
 <% end %>
