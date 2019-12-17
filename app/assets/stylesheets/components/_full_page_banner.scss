@@ -7,33 +7,16 @@
   width: 20%;
   margin: 0;
   // background: white;
+  // writing-mode: vertical-rl;
   display:flex;
   flex-direction: column;
   justify-content:center;
   align-items: center;
-  // writing-mode: vertical-rl;
   transform: rotate(-90deg);
   text-orientation: upright;
   font-size: 12vh;
   white-space: nowrap;
 }
-
-// // Small devices (landscape phones, 576px and up)
-// @media (min-width: 576px) { ... }
-
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) { ... }
-
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) { ... }
-
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) { ... }
-
-
-
-
-
 
 .full-page-banner-img {
   background-image: url('https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80');
