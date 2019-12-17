@@ -4,11 +4,10 @@
       <div class="show-card-container-left">
         <div class="recipe-header-hidden">
           <h1><%= @recipe.title %></h1>
-          <span>prep time: <%= @recipe.prep_time %></span>
-          <span>cook time: <%= @recipe.cook_time %></span>
-          <span>serves: <%= @recipe.serves %></span>
-          <span>difficulty: <%= @recipe.difficulty %></span>
-          <span>category: <%= @recipe.category %></span>
+          <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
+          <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
+          <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
+          <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
         </div>
         <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
         <div class="recipe-summary">
@@ -19,11 +18,12 @@
       <div class="show-card-container-right">
         <div class="recipe-header">
           <h1><%= @recipe.title %></h1>
-          <span>prep time: <%= @recipe.prep_time %></span>
-          <span>cook time: <%= @recipe.cook_time %></span>
-          <span>serves: <%= @recipe.serves %></span>
-          <span>difficulty: <%= @recipe.difficulty %></span>
-          <span>category: <%= @recipe.category %></span>
+          <div class="recipe-metrics">
+            <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
+            <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
+            <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
+            <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
+          </div>
         </div>
         <div class="row recipe-steps-and-ingredients">
           <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7 p-0">
