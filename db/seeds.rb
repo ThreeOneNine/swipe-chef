@@ -32,12 +32,12 @@ end
 
 collections.each_with_index do |collection, i|
   puts "Creating recipes in collection #{i + 1} of #{collections.length}"
-  collection_url = base_url + '/recipes/collection/' + collection
-  collection_doc = Nokogiri::HTML(open(collection_url).read)
+  collection_url = base_url + '/recipes/collection/' + collection + '/?IGNORE_GEO_REDIRECT_GLOBAL=true' # Temporary
+  collection_doc = Nokogiri::HTML(open(collection_url, allow_redirections: :all).read) # Temporary
   collection_doc.search('.teaser-item__title a').each do |a|
     recipe_path = a['href'].strip.downcase
-    recipe_url = base_url + recipe_path
-    recipe_doc = Nokogiri::HTML(open(recipe_url).read)
+    recipe_url = base_url + recipe_path + '?IGNORE_GEO_REDIRECT_GLOBAL=true' # Temporary
+    recipe_doc = Nokogiri::HTML(open(recipe_url, allow_redirections: :all).read) # Temporary
 
     # Finding img_url and removing itoken suffix
     img_token_regex = /(?<itok>\?.*$)/
