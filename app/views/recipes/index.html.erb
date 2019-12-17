@@ -1,16 +1,17 @@
 <% @recipes.each do |recipe| %>
-  <div class='recipe-index-show-card'>
-    <div class='recipe-index-card-text-wrapper'>
-      <h1 class='recipe-card-title'><%= recipe.title %></h1>
-      <p><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
-      <p><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
-      <p><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
-      <p>Difficulty: <%= recipe.difficulty %></p>
-      <p>#Ingredients: <%= recipe.ingredients_count %></p>
-      <p>Category: <%= recipe.category.capitalize %></p>
-      <%= link_to 'COOK ME', recipe_path(recipe) %>
-    </div >
-    <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'>
+  <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
+    <div class='recipe-index-show-card'>
+      <div class='recipe-index-card-text-wrapper'>
+        <h1 class='recipe-card-title'><%= recipe.title %></h1>
+        <p><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
+        <p><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
+        <p><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+        <p>Difficulty: <%= recipe.difficulty %></p>
+        <p>#Ingredients: <%= recipe.ingredients_count %></p>
+        <p>Category: <%= recipe.category.capitalize %></p>
+      </div >
+      <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
