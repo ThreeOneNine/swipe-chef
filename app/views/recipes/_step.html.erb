@@ -1,0 +1,24 @@
+<div class="recipe-step">
+  <h2>DESCRIPTION</h2>
+  <p><%= recipe.description %></p>
+  <h2 id="step-count">STEP <%= @step %>/<%= recipe.steps.count %></h2>
+  <p id="step-description"><%= recipe.steps[@step - 1][:description] %></p>
+  <%= link_to "/recipes/#{recipe.id}/previous_step/#{@step}", remote: true, id:"link-to-previous-step" do %>
+    <img style=" height: 30px;" src="https://image.flaticon.com/icons/png/512/60/60775.png" alt="">
+  <% end %>
+  <%= link_to "/recipes/#{recipe.id}/next_step/#{@step}", remote: true, id:"link-to-next-step" do %>
+    <img style=" height: 30px;" src="https://image.flaticon.com/icons/png/512/60/60758.png" alt="">
+  <% end %>
+</div>
+
+<!-- event listener for left and right arrows that simulates clicking links for next / previous -->
+<script type="text/javascript">
+
+  const nextStep = document.querySelector('#link-to-next-step')
+  const previousStep = document.querySelector('#link-to-previous-step')
+
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 39) nextStep.click();
+    if (e.keyCode === 37) nextStep.click();
+  });
+</script>

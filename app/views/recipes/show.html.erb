@@ -1,56 +1,49 @@
-
-  <div class="row recipe-show-card">
-    <div class="col-sm-12 col-md-12 col-lg-5 p-0">
-      <div class="show-card-container-left">
-        <div class="recipe-header-hidden">
-          <h1><%= @recipe.title %></h1>
+<div class="row recipe-show-card">
+  <div class="col-sm-12 col-md-12 col-lg-5 p-0">
+    <div class="show-card-container-left">
+      <div class="recipe-header-hidden">
+        <h1><%= @recipe.title %></h1>
+        <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
+        <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
+        <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
+        <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
+      </div>
+      <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
+      <div class="recipe-summary">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-7 p-0">
+    <div class="show-card-container-right">
+      <div class="recipe-header">
+        <h1><%= @recipe.title %></h1>
+        <div class="recipe-metrics">
           <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
           <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
           <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
           <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
         </div>
-        <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
-        <div class="recipe-summary">
-        </div>
       </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-7 p-0">
-      <div class="show-card-container-right">
-        <div class="recipe-header">
-          <h1><%= @recipe.title %></h1>
-          <div class="recipe-metrics">
-            <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
-            <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
-            <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
-            <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
-          </div>
+      <div class="row recipe-steps-and-ingredients">
+        <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7 p-0">
+          <%= render 'step', {recipe:@recipe, step: @step} %>
         </div>
-        <div class="row recipe-steps-and-ingredients">
-          <div class="col-sm-12 col-md-6 col-lg-7 col-xl-7 p-0">
-            <div class="recipe-steps">
-              <h2>DESCRIPTION</h2>
-              <p><%= @recipe.description %></p>
-              <% counter = 1 %>
-              <h2>STEP <%= counter %>/<%= @recipe.steps.count %></h2>
-              <%= @recipe.steps[counter - 1][:description] %>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 p-0">
-            <div class="recipe-ingredients">
-              <h2>INGREDIENTS</h2>
-              <table>
-                <% @recipe.ingredients.each do |ingredient| %>
-                <tr>
-                  <td><%= ingredient.description %></td>
-                </tr>
-                <% end %>
-              </table>
-            </div>
+        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 p-0">
+          <div class="recipe-ingredients">
+            <h2>INGREDIENTS</h2>
+            <table>
+              <% @recipe.ingredients.each do |ingredient| %>
+              <tr>
+                <td><%= ingredient.description %></td>
+              </tr>
+              <% end %>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 

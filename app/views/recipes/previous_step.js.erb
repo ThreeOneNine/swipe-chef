@@ -1,0 +1,14 @@
+// AJAX to alter the content of the step partial and update the link to 'previous-step' in anicipation of another click
+$.ajax ({
+        type: "GET",
+        url: '<%= "/recipes/#{@recipe.id}" %>',
+        data: "{}",
+        cache: false,
+        dataType: "html",
+        success: function() {
+          $('#step-count').html('STEP <%= @step %>/<%= @recipe.steps.count %>');
+          $('#step-description').html('<%=@recipe.steps[@step - 1][:description]=%>')
+          $("#link-to-previous-step").attr("href", '<%="/recipes/#{@recipe.id}/previous_step/#{@step}" %>');
+          $("#link-to-next-step").attr("href", '<%="/recipes/#{@recipe.id}/next_step/#{@step}" %>');
+        }
+})
