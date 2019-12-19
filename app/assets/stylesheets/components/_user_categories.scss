@@ -1,0 +1,13 @@
+.category-delete {
+  padding: 4px 16px;
+  background-color: $teal;
+  margin: 16px 32px;
+  border-radius: 3px;
+  color: white;
+  transition: 0.3s ease;
+  &:hover {
+    text-decoration: none;
+    opacity: 50%;
+    color: white;
+  }
+}
