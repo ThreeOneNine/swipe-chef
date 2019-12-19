@@ -1,13 +1,13 @@
 <h1>Your categories:</h1>
 <% @user_categories.each do |uc| %>
-  <%= link_to '#', method: :delete, class: 'category-delete', :remote => true do %>
-    <%= uc.name %>
-  <% end %>
+  <%= link_to uc.category.name, user_category_path(uc), method: :delete, class: 'category-delete' %>
 <% end %>
 
+
+
+
+
 <h1>Select more:</h1>
-<% @remaining_categories.each do |uc| %>
-  <%= link_to '#', method: :create, class: 'category-delete', :remote => true do %>
-    <%= uc.name %>
-  <% end %>
+<% @remaining_categories.each do |rc| %>
+  <%= link_to rc.name, user_categories_path(category_id: rc.id), method: :post, class: 'category-delete' %>
 <% end %>
