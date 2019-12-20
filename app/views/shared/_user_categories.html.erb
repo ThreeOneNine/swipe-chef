@@ -1,0 +1,3 @@
+<% @user_categories.each do |uc| %>
+  <%= link_to uc.category.name, user_category_path(uc), method: :delete, class: 'category-delete', remote: true %>
+<% end %>

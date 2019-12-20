@@ -1,0 +1,10 @@
+function refreshCategories(userInnerHTML, remainingInnerHTML) {
+	const userCategoriesContainer = document.getElementById('user-categories-container');
+	userCategoriesContainer.innerHTML = userInnerHTML;
+
+	const remainingCategoriesContainer = document.getElementById('remaining-categories-container');
+	remainingCategoriesContainer.innerHTML = remainingInnerHTML;
+}
+
+refreshCategories(	'<%= j render partial: "shared/user_categories" %>',
+					'<%= j render partial: "shared/remaining_categories" %>')

@@ -12,7 +12,7 @@ class UserCategoriesController < ApplicationController
     @user_category = UserCategory.new
     @user_categories = current_user.user_categories
     @remaining_categories = Category.all - @user_categories.map(&:category)
-    render :index
+    index_ajax
   end
 
   def create
@@ -24,6 +24,15 @@ class UserCategoriesController < ApplicationController
     @user_category = UserCategory.new
     @user_categories = current_user.user_categories
     @remaining_categories = Category.all - @user_categories.map(&:category)
-    render :index
+    index_ajax
+  end
+
+  private
+
+  def index_ajax
+    respond_to do |f|
+      f.html { redirect_to user_categories_path }
+      f.js
+    end
   end
 end

@@ -1,10 +1,9 @@
 <h1>Your categories:</h1>
-<% @user_categories.each do |uc| %>
-  <%= link_to uc.category.name, user_category_path(uc), method: :delete, class: 'category-delete' %>
-<% end %>
+<div id='user-categories-container'>
+	<%= render 'shared/user_categories' %>
+</div>
 
-<h1>Select more:</h1>
-<% @remaining_categories.each do |rc| %>
-  <%= link_to rc.name, user_categories_path(category_id: rc.id), method: :post, class: 'category-delete' %>
-<% end %>
+<div id='remaining-categories-container'>
+	<%= render 'shared/remaining_categories' %>
+</div>
 
