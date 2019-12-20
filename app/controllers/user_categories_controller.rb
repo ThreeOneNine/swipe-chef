@@ -6,7 +6,6 @@ class UserCategoriesController < ApplicationController
 
   def destroy
     @user_category = UserCategory.find(params[:id])
-    @category = @user_category.category
     @user_category.destroy
 
     set_categories
