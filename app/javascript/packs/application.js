@@ -1,4 +1,4 @@
 import "bootstrap";
-import { swiperTest } from 'swiper';
-swiperTest;
+import { swiperTest } from './swiper.js';
+console.log(swiperTest);
 
