@@ -1,3 +1,4 @@
+<h1>Your categories:</h1>
 <% @user_categories.each do |uc| %>
-  <%= link_to uc.category.name, user_category_path(uc), method: :delete, class: 'category-delete', remote: true %>
+  <%= link_to uc.category.name, user_category_path(uc), method: :delete, class: 'category-delete' %>
 <% end %>

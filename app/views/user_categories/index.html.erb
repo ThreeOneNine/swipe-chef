@@ -1,9 +1,9 @@
-<h1>Your categories:</h1>
-<div id='user-categories-container'>
-	<%= render 'shared/user_categories' %>
-</div>
-
-<div id='remaining-categories-container'>
-	<%= render 'shared/remaining_categories' %>
-</div>
-
+<h1>Click to select a category!</h1>
+<% @categories.each do |category| %>
+	<% if @user_categories.include?(category) %>
+		<% uc = current_user.user_categories.where(category: category).first %>
+		<%= link_to category.name, user_category_path(uc), method: :delete, class: 'category-button category-button-selected' %>
+	<% else %>
+		<%= link_to category.name, user_categories_path(category_id: category.id), method: :post, class: 'category-button' %>
+	<% end %>
+<% end %>

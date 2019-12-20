@@ -1,4 +1,4 @@
 <h1>Select more:</h1>
 <% @remaining_categories.each do |rc| %>
-  <%= link_to rc.name, user_categories_path(category_id: rc.id), method: :post, class: 'category-delete', remote: true %>
+  <%= link_to rc.name, user_categories_path(category_id: rc.id), method: :post, class: 'category-delete' %>
 <% end %>
