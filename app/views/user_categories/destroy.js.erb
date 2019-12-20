@@ -1,10 +1,6 @@
-function refreshCategories(userInnerHTML, remainingInnerHTML) {
-	const userCategoriesContainer = document.getElementById('user-categories-container');
-	userCategoriesContainer.innerHTML = userInnerHTML;
-
-	const remainingCategoriesContainer = document.getElementById('remaining-categories-container');
-	remainingCategoriesContainer.innerHTML = remainingInnerHTML;
+function toggleCategoryButton(category_id) {
+	const categoryButton = document.getElementById(category_id);
+	categoryButton.classList.toggle('category-button-selected');
 }
 
-refreshCategories(	'<%= j render partial: "shared/user_categories" %>',
-					'<%= j render partial: "shared/remaining_categories" %>')
+toggleCategoryButton(<%= @category.id %>)

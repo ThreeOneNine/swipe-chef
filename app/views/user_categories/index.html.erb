@@ -1,9 +1,11 @@
 <h1>Click to select a category!</h1>
-<% @categories.each do |category| %>
-	<% if @user_categories.include?(category) %>
-		<% uc = current_user.user_categories.where(category: category).first %>
-		<%= link_to category.name, user_category_path(uc), method: :delete, class: 'category-button category-button-selected' %>
-	<% else %>
-		<%= link_to category.name, user_categories_path(category_id: category.id), method: :post, class: 'category-button' %>
+<div id="categories-container">
+	<% @categories.each do |category| %>
+		<% if @user_categories.include?(category) %>
+			<% uc = current_user.user_categories.where(category: category).first %>
+			<%= link_to category.name, user_category_path(uc), method: :delete, remote: true, class: 'category-button category-button-selected', id: category.id %>
+		<% else %>
+			<%= link_to category.name, user_categories_path(category_id: category.id), method: :post, remote: true, class: 'category-button', id: category.id %>
+		<% end %>
 	<% end %>
-<% end %>
+</div>
