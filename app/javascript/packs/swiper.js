@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 
+console.log("hello from swiper")
 var swiperTest = new Swiper('.swiper-container', {
     cssMode: true,
     navigation: {
