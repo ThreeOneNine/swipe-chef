@@ -1,7 +1,5 @@
 class UserCategoriesController < ApplicationController
   before_action :set_categories, only: %i[index]
-  after_action :set_categories, only: %i[create destroy]
-  after_action :index_ajax, only: %i[create destroy]
 
   def index
   end
@@ -10,6 +8,9 @@ class UserCategoriesController < ApplicationController
     @user_category = UserCategory.find(params[:id])
     @category = @user_category.category
     @user_category.destroy
+
+    set_categories
+    index_ajax
   end
 
   def create
@@ -17,6 +18,9 @@ class UserCategoriesController < ApplicationController
     @user_category.category = Category.find(params[:category_id])
     @user_category.user = current_user
     @user_category.save
+
+    set_categories
+    index_ajax
   end
 
   private

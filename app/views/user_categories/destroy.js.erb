@@ -1,6 +1,6 @@
-function toggleCategoryButton(category_id) {
-	const categoryButton = document.getElementById(category_id);
-	categoryButton.classList.toggle('category-button-selected');
+function refreshCategories(innerHTML) {
+	const categoryButtonsContainer = document.getElementById('category-buttons-container');
+	categoryButtonsContainer.innerHTML = innerHTML;
 }
 
-toggleCategoryButton(<%= @category.id %>)
+refreshCategories('<%= j render partial: "shared/user_categories_buttons" %>')
