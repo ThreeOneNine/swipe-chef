@@ -16,15 +16,18 @@
           <%= link_to "Preferences", user_preferences_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Categories", user_categories_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <!-- <li class="nav-item dropdown">
-          <%= image_tag "https://www.hardiagedcare.com.au/wp-content/uploads/2019/02/default-avatar-profile-icon-vector-18942381.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Preferences", user_preferences_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <%#= image_tag "https://www.hardiagedcare.com.au/wp-content/uploads/2019/02/default-avatar-profile-icon-vector-18942381.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> -->
+            <%#= link_to "Preferences", user_preferences_path, class: "dropdown-item" %>
+            <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-        </li> -->
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

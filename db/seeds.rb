@@ -5,6 +5,7 @@ Recipe.destroy_all
 UserCategory.destroy_all
 UserPreference.destroy_all
 User.destroy_all
+Category.destroy_all
 
 base_url = 'https://www.bbcgoodfood.com'
 
