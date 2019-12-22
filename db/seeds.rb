@@ -15,6 +15,15 @@ collections = %w[ batch-cooking
                   easy-impressive
                   under-20-minutes
                   vegetarian-comfort-food
+                  pasta
+                  soup
+                  casserole
+                  healthy-lunch
+                  family-meal
+                  dinner-party
+                  vegetarian-party
+                  stir-fry
+                  tapas
                   gluten-free]
 collections.each { |collection| Category.create(name: collection) }
 
