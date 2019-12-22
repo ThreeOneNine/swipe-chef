@@ -1,8 +1,14 @@
-<% @categories.each do |category| %>
-	<% if @user_categories.include?(category) %>
-		<% uc = current_user.user_categories.where(category: category).first %>
-		<%= link_to category.name, user_category_path(uc), method: :delete, remote: true, class: 'category-button category-button-selected' %>
-	<% else %>
-		<%= link_to category.name, user_categories_path(category_id: category.id), method: :post, remote: true, class: 'category-button' %>
+<div class="row">
+	<% @categories.each do |category| %>
+		<div class="col-4">
+			<div class="category-button-container">
+				<% if @user_categories.include?(category) %>
+					<% uc = current_user.user_categories.where(category: category).first %>
+					<%= link_to category.name, user_category_path(uc), method: :delete, remote: true, class: 'category-button category-button-selected' %>
+				<% else %>
+					<%= link_to category.name, user_categories_path(category_id: category.id), method: :post, remote: true, class: 'category-button' %>
+				<% end %>
+			</div>
+		</div>
 	<% end %>
-<% end %>
+</div>

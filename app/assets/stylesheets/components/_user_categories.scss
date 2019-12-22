@@ -1,5 +1,6 @@
 .category-button {
   display: inline;
+
   padding: 4px 16px;
   background-color: $teal;
   margin: 16px;
@@ -20,4 +21,9 @@
     opacity: 100%;
     color: white;
   }
+}
+
+.category-button-container {
+  display: flex;
+  justify-content: center;
 }
