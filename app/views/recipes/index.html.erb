@@ -24,83 +24,44 @@
 
     <div class="carousel-item active">
       <div class="col-12 col-md-4">
-        <div class="card mb-2">
-          <div style="background-image: url(http://<%= @recipes[0].img_url %>)" class='card-img-top'></div>
-          <div class="card-body">
-            <h4 class="card-title font-weight-bold"><%= @recipes[0].title %></h4>
-            <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= @recipes[0].prep_time %>
-            <i class="fas fa-temperature-high"></i> Cook Time: <%= @recipes[0].cook_time %>
-            <i class="fas fa-user-friends"></i> Serves: <%= @recipes[0].serves %></p>
-            <p>Difficulty: <%= @recipes[0].difficulty %></p>
-            <p>#Ingredients: <%= @recipes[0].ingredients_count %></p>
-            <p>Category: <%= @recipes[0].category.capitalize %></p>
+        <% counter = 0 %>
+        <%= @recipes.each do |recipe| %>
+          <div class="card mb-2">
+            <div style="background-image: url(http://<%= recipe.img_url %>)" class='card-img-top'></div>
+            <div class="card-body">
+              <h4 class="card-title font-weight-bold"><%= recipe.title %></h4>
+              <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %>
+              <i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %>
+              <i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+              <p>Difficulty: <%= recipe.difficulty %></p>
+              <p>#Ingredients: <%= recipe.ingredients_count %></p>
+              <p>Category: <%= recipe.category.capitalize %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
+        <% counter += 1 %>
       </div>
     </div>
     <div class="carousel-item">
       <div class="col-12 col-md-4">
-        <% @recipes = recipe[i] %>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-12 col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title font-weight-bold">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary btn-md btn-rounded">Button</a>
+        <% counter = 0 %>
+        <%= @recipes.each do |recipe| %>
+          <div class="card mb-2">
+            <div style="background-image: url(http://<%= recipe.img_url %>)" class='card-img-top'></div>
+            <div class="card-body">
+              <h4 class="card-title font-weight-bold"><%= recipe.title %></h4>
+              <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %>
+              <i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %>
+              <i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+              <p>Difficulty: <%= recipe.difficulty %></p>
+              <p>#Ingredients: <%= recipe.ingredients_count %></p>
+              <p>Category: <%= recipe.category.capitalize %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
+        <% counter += 1 %>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="col-12 col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (29).jpg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title font-weight-bold">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary btn-md btn-rounded">Button</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-12 col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (30).jpg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title font-weight-bold">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary btn-md btn-rounded">Button</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-12 col-md-4">
-        <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (27).jpg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title font-weight-bold">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary btn-md btn-rounded">Button</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
-
 </div>
 
