@@ -1,0 +1,19 @@
+
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h1 class="card-title font-weight-bold"><%= recipe.id %></h1>
+          <h1 class="card-title font-weight-bold"><%= recipe.title %></h1>
+          <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %>
+          <i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %>
+          <i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+          <p>Difficulty: <%= recipe.difficulty %></p>
+          <p>#Ingredients: <%= recipe.ingredients_count %></p>
+          <p>Category: <%= recipe.category.capitalize %></p>
+        </div >
+        <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
