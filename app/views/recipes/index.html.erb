@@ -1,17 +1,65 @@
-<% @recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
-    <div class='recipe-index-show-card'>
-      <div class='recipe-index-card-text-wrapper'>
-        <h1 class='recipe-card-title'><%= recipe.title %></h1>
-        <p><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
-        <p><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
-        <p><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
-        <p>Difficulty: <%= recipe.difficulty %></p>
-        <p>#Ingredients: <%= recipe.ingredients_count %></p>
-        <p>Category: <%= recipe.category.capitalize %></p>
-      </div >
-      <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'>
+<div id="carouselExampleControls" class="carousel slide carousel-multi-item" data-keyboard="true">
+
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <% counter = 0 %>
+    <% @recipes.each do |recipe| %>
+      <div class="carousel-item <%= "active" if counter == 0 %>">
+        <div class="recipe-index-show-card">
+          <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'></div>
+          <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
+          <div class="card-body">
+            <h4 class="recipe-card-title"><%= recipe.title %></h4>
+            <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
+            <p class="card-text"><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
+            <p class="card-text"><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
+            <p>Difficulty: <%= recipe.difficulty %></p>
+            <p>Ingredients: <%= recipe.ingredients_count %></p>
+            <p>Category: <%= recipe.category.capitalize %></p>
+          </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-<% end %>
+      <% counter += 1 %>
+    <% end %>
+  </div>
+  <!--/.Slides-->
+
+</div>
+
+<!--/.Carousel Wrapper-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
