@@ -1,14 +1,16 @@
 <div class="container">
   <% if @user_preference.id? %>
-    <h1>Showing results for recipes under <%= @user_preference.max_cooking_time %> minutes long, serving between <%= @user_preference.cook_for_min %> and <%= @user_preference.cook_for_max %> people</h1>
+    <h1 class="preference-title">Showing results for recipes under <%= @user_preference.max_cooking_time %> minutes long, serving between <%= @user_preference.cook_for_min %> and <%= @user_preference.cook_for_max %> people</h1>
   <% else %>
-    <h1>Set some preferences below!</h1>
+    <h1 class="preference-title">Set some preferences below!</h1>
   <% end %>
 
-  <%= simple_form_for @user_preference do |f| %>
-    <%= f.input :max_cooking_time %>
-    <%= f.input :cook_for_min %>
-    <%= f.input :cook_for_max %>
-    <%= f.button :submit %>
-  <% end %>
+  <div class="preference_form_container">
+    <%= simple_form_for @user_preference, html: { class: "preference_form"}  do |f| %>
+      <%= f.input :max_cooking_time %>
+      <%= f.input :cook_for_min %>
+      <%= f.input :cook_for_max %>
+      <%= f.button :submit, class: "preference-submit" %>
+    <% end %>
+  </div>
 </div>
