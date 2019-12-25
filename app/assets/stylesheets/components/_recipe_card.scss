@@ -1,7 +1,7 @@
 .recipe-index-show-card {
   background: white;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   display: flex;
   margin: 0 auto;
@@ -40,14 +40,15 @@
 }
 
 .recipe-index-card-image-wrapper {
-  width: 70%;
+  min-width: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .recipe-index-card-text-wrapper {
-  width: 50%;
+  min-width: 50%;
+  text-overflow: ellipsis;
   overflow: hidden;
   padding-right: 5%;
 
@@ -55,11 +56,10 @@
 
 
 .recipe-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 300%;
-  font-weight: 200;
+  font-size: 200%;
+  font-weight: 400;
   line-height: 60px;
-  margin: 10px 0;
+  margin: 0px 0px 10px 0px;
   @include media-breakpoint-up(xs) {
     font-size: 200%;
   }
@@ -71,12 +71,23 @@
   }
 }
 
-.recipe-show-link {
+a.recipe-show-link {
+  text-overflow: ellipsis;
   text-decoration: none;
   color: black;
+  padding: 0px 30px 30px 30px;
+  overflow: hidden;
+  height: 100%;
 }
 
 .recipe-show-link:hover {
   text-decoration: none;
   color: black;
 }
+
+.card-body {
+  padding: 0px 30px 30px 30px;
+  text-overflow: ellipsis;
+  height: 100%;
+}
+
