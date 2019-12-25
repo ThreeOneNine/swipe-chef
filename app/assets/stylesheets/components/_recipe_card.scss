@@ -56,18 +56,18 @@
 
 
 .recipe-card-title {
-  font-size: 200%;
+  font-size: 5vh;
   font-weight: 400;
   line-height: 60px;
   margin: 0px 0px 10px 0px;
   @include media-breakpoint-up(xs) {
-    font-size: 200%;
+    font-size: 5vh;
   }
   @include media-breakpoint-up(sm) {
-    font-size: 300%;
+    font-size: 5vh;
   }
   @include media-breakpoint-up(md) {
-    font-size: 300%;
+    font-size: 5vh;
   }
 }
 
@@ -75,20 +75,23 @@ a.recipe-show-link {
   text-overflow: ellipsis;
   text-decoration: none;
   color: black;
-  padding: 0px 30px 30px 30px;
+  padding: 0px 30px 0px 30px;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 
 .recipe-show-link:hover {
   text-decoration: none;
   color: black;
+  width: 100%;
 }
 
 .card-body {
-  padding: 0px 30px 30px 30px;
   text-overflow: ellipsis;
   height: 100%;
+  padding: 0px;
+  width: 100%;
 }
 
 .table-index {
@@ -98,4 +101,14 @@ a.recipe-show-link {
 
 .recipe-card-title {
   max-height: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recipe-table {
+  padding: 5px;
+}
+
+.table-recipe-index {
+ font-size: 2vh;
 }

@@ -27,30 +27,30 @@
           <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
           <div class="card-body">
             <h4 class="recipe-card-title"><%= recipe.title %></h4>
-            <table style="width:100%" class='table-index'>
+            <table style="width:100%" class='table-recipe-index'>
               <tr>
-                <td><i class="far fa-clock"></i> Prep Time:</td>
-                <td><%= recipe.prep_time %></td>
+                <td class='recipe-table'><i class="far fa-clock"></i> Prep Time:</td>
+                <td class='recipe-table'><%= recipe.prep_time %></td>
               </tr>
               <tr>
-                <td><i class="fas fa-temperature-high"></i> Cook Time:</td>
-                <td><%= recipe.cook_time %></td>
+                <td class='recipe-table'><i class="fas fa-temperature-high"></i> Cook Time:</td>
+                <td class='recipe-table'><%= recipe.cook_time %></td>
               </tr>
               <tr>
-                <td><i class="fas fa-user-friends"></i> Serves:</td>
-                <td><%= recipe.serves %></td>
+                <td class='recipe-table'><i class="fas fa-user-friends"></i> Serves:</td>
+                <td class='recipe-table'><%= recipe.serves %></td>
               </tr>
               <tr>
-                <td>Difficulty:</td>
-                <td><%= recipe.difficulty %></td>
+                <td class='recipe-table'>Difficulty:</td>
+                <td class='recipe-table'><%= recipe.difficulty %></td>
               </tr>
               <tr>
-                <td>Ingredients: </td>
-                <td><%= recipe.ingredients_count %></td>
+                <td class='recipe-table'>Ingredients: </td>
+                <td class='recipe-table'><%= recipe.ingredients_count %></td>
               </tr>
               <tr>
-                <td>Category: </td>
-                <td><%= recipe.category.capitalize %></td>
+                <td class='recipe-table'>Category: </td>
+                <td class='recipe-table'><%= recipe.category.capitalize %></td>
               </tr>
             </table>
           </div>
