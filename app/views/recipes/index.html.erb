@@ -27,12 +27,32 @@
           <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
           <div class="card-body">
             <h4 class="recipe-card-title"><%= recipe.title %></h4>
-            <p class="card-text"><i class="far fa-clock"></i> Prep Time: <%= recipe.prep_time %></p>
-            <p class="card-text"><i class="fas fa-temperature-high"></i> Cook Time: <%= recipe.cook_time %></p>
-            <p class="card-text"><i class="fas fa-user-friends"></i> Serves: <%= recipe.serves %></p>
-            <p>Difficulty: <%= recipe.difficulty %></p>
-            <p>Ingredients: <%= recipe.ingredients_count %></p>
-            <p>Category: <%= recipe.category.capitalize %></p>
+            <table style="width:100%" class='table-recipe-index'>
+              <tr>
+                <td class='recipe-table'><i class="far fa-clock"></i> Prep Time:</td>
+                <td class='recipe-table'><%= recipe.prep_time %></td>
+              </tr>
+              <tr>
+                <td class='recipe-table'><i class="fas fa-temperature-high"></i> Cook Time:</td>
+                <td class='recipe-table'><%= recipe.cook_time %></td>
+              </tr>
+              <tr>
+                <td class='recipe-table'><i class="fas fa-user-friends"></i> Serves:</td>
+                <td class='recipe-table'><%= recipe.serves %></td>
+              </tr>
+              <tr>
+                <td class='recipe-table'>Difficulty:</td>
+                <td class='recipe-table'><%= recipe.difficulty %></td>
+              </tr>
+              <tr>
+                <td class='recipe-table'>Ingredients: </td>
+                <td class='recipe-table'><%= recipe.ingredients_count %></td>
+              </tr>
+              <tr>
+                <td class='recipe-table'>Category: </td>
+                <td class='recipe-table'><%= recipe.category.capitalize %></td>
+              </tr>
+            </table>
           </div>
           <% end %>
         </div>
