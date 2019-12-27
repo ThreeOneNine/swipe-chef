@@ -1,24 +1,23 @@
-<div class="container" style="height: 80vh">
-  <div class="d-flex h-100 justify-content-center align-items-center">
-
-    <div class="w-50">
-    <% if @user_preference.id? %>
-      <h1 class="preference-title">Showing recipes under <%= @user_preference.max_cooking_time %> minutes long, serving between <%= @user_preference.cook_for_min %> and <%= @user_preference.cook_for_max %> people</h1>
-    <% else %>
-      <h1 class="preference-title">Set some preferences below!</h1>
-    <% end %>
-    </div>
-
-    <div class="w-50">
-      <div class="preference_form_container">
-        <%= simple_form_for @user_preference, html: { class: "preference_form"}  do |f| %>
-          <%= f.input :max_cooking_time, label: "Maximum cooking time" %>
-          <%= f.input :cook_for_min, label: "Minimum servings" %>
-          <%= f.input :cook_for_max, label: "Maximum servings" %>
-          <%= f.button :submit, "Set Preference", class: "preference-submit" %>
-        <% end %>
+<div id="preferences-background">
+  <div class="container d-flex justify-content-center" style="height: 80vh">
+    <div class="d-flex w-75 h-100 justify-content-center align-items-center">
+      <div class="w-50">
+      <% if @user_preference.id? %>
+        <h1 class="preference-title">Showing recipes under <span class="teal-text">&nbsp<%= @user_preference.max_cooking_time %>&nbsp</span></%> minutes long, serving between <span class="teal-text">&nbsp<%= @user_preference.cook_for_min %>&nbsp</span> and <span class="teal-text">&nbsp<%= @user_preference.cook_for_max %>&nbsp</span> people</h1>
+      <% else %>
+        <h1 class="preference-title">Set some preferences below!</h1>
+      <% end %>
+      </div>
+      <div class="w-50">
+        <div class="preference_form_container">
+          <%= simple_form_for @user_preference, html: { class: "preference_form"}  do |f| %>
+            <%= f.input :max_cooking_time, label: "Maximum cooking time" %>
+            <%= f.input :cook_for_min, label: "Minimum servings" %>
+            <%= f.input :cook_for_max, label: "Maximum servings" %>
+            <%= f.button :submit, "Set Preference", class: "preference-submit" %>
+          <% end %>
+        </div>
       </div>
     </div>
-
   </div>
 </div>

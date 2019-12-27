@@ -30,3 +30,15 @@
   }
   font-family: 'Rubik';
 }
+
+#preferences-background {
+  background-image: url("https://res.cloudinary.com/dr48k5zwm/image/upload/v1577463011/photo-1495195134817-aeb325a55b65_2_tfk46s.jpg");
+  background-size: cover;
+  height: calc(100vh - 74px);
+  color: white;
+}
+ .teal-text {
+   background-color: $teal;
+   border-radius: 3px;
+   padding: auto 10px;
+ }
