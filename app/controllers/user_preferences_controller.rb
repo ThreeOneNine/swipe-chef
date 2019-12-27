@@ -9,8 +9,12 @@ class UserPreferencesController < ApplicationController
 
   def update
     @user_preference = UserPreference.where(user: current_user).first
-    @user_preference.update(strong_params)
-    render :index
+    @user_preference.update!(strong_params)
+
+    respond_to do |f|
+      f.html { redirect_to user_preferences_path }
+      f.js
+    end
   end
 
   def create
