@@ -1,6 +1,18 @@
-<div class="full-page-banner-container">
-  <h1 class="full-page-banner-title">SWIPE CHEF <i class="fas fa-angle-double-right icon-sizing-home"></i></h1>
-  <div class="full-page-banner-img">
-    <%= link_to 'CLICK FOR DELICIOUSNESS', recipes_path %>
-  </div>
+<div class="link-wrapper">
+  <%= link_to recipes_path, class:"home-page-link" do  %>
+    <div class="full-page-banner-container">
+      <h1 class="full-page-banner-title">SWIPE CHEF <i class="fas fa-angle-double-right icon-sizing-home"></i></h1>
+      <div class="full-page-banner-img">
+        <h2>CLICK FOR DELICIOUSNESS</h2>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<!-- keyup on any key simulates clicking link through to recipes -->
+<script type="text/javascript">
+  const homePageLink = document.querySelector(".home-page-link")
+  document.addEventListener("keyup", () => {
+    homePageLink.click();
+  });
+</script>
