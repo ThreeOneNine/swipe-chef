@@ -1,11 +1,14 @@
-<div id="carouselExampleControls" class="carousel slide carousel-multi-item" data-keyboard="true">
-
+<!-- data-interval:false turns off auto scrolling -->
+<!-- data-keyboard turned off and replaced with custom script at bottom of page -->
+<div id="carouselExampleControls" class="carousel slide carousel-multi-item" data-keyboard="false" data-interval="false">
   <!--Controls-->
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="sr-only">Previous</span>
+    <img style=" height: 30px;" src="https://image.flaticon.com/icons/png/512/60/60775.png" alt="">
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="sr-only">Next</span>
+    <img style=" height: 30px;" src="https://image.flaticon.com/icons/png/512/60/60758.png" alt="">
   </a>
   <!--/.Controls-->
 
@@ -22,41 +25,35 @@
     <% counter = 0 %>
     <% @recipes.each do |recipe| %>
       <div class="carousel-item <%= "active" if counter == 0 %>">
-        <div class="recipe-index-show-card">
+        <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
+        <div class="recipe-index-card">
           <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'></div>
-          <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
-          <div class="card-body">
-            <h4 class="recipe-card-title"><%= recipe.title %></h4>
-            <table style="width:100%" class='table-recipe-index'>
-              <tr>
-                <td class='recipe-table'><i class="far fa-clock"></i> Prep Time:</td>
-                <td class='recipe-table'><%= recipe.prep_time %></td>
-              </tr>
-              <tr>
-                <td class='recipe-table'><i class="fas fa-temperature-high"></i> Cook Time:</td>
-                <td class='recipe-table'><%= recipe.cook_time %></td>
-              </tr>
-              <tr>
-                <td class='recipe-table'><i class="fas fa-user-friends"></i> Serves:</td>
-                <td class='recipe-table'><%= recipe.serves %></td>
-              </tr>
-              <tr>
-                <td class='recipe-table'>Difficulty:</td>
-                <td class='recipe-table'><%= recipe.difficulty %></td>
-              </tr>
-              <tr>
-                <td class='recipe-table'>Ingredients: </td>
-                <td class='recipe-table'><%= recipe.ingredients_count %></td>
-              </tr>
-              <tr>
-                <td class='recipe-table'>Category: </td>
-                <td class='recipe-table'><%= recipe.category.capitalize %></td>
-              </tr>
-            </table>
-          </div>
-          <% end %>
+              <div class="card-body">
+                <h4 class="recipe-card-title"><%= recipe.title %></h4>
+                <span class="category-and-difficulty"><%= recipe.difficulty %></span>
+                <span class="category-and-difficulty"><%= recipe.category.capitalize %></span>
+                <div class="recipe-metrics">
+                <div class="recipe-metrics-card">
+                  <h2><i class="far fa-clock"></i>Prep Time</h2>
+                  <p><%= recipe.prep_time %> mins</p>
+                </div>
+                <div class="recipe-metrics-card">
+                  <h2><i class="fas fa-temperature-high"></i>Cook Time</h2>
+                  <p><%= recipe.cook_time %> mins</p>
+                </div>
+                <div class="recipe-metrics-card">
+                  <h2><i class="fas fa-user-friends"></i>Serves</h2>
+                  <p><%= recipe.serves %> people</p>
+                </div>
+                <div class="recipe-metrics-card">
+                  <h2><i class="fas fa-pepper-hot"></i>Ingredients</h2>
+                  <p><%= recipe.ingredients_count %> ingr</p>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
+      <% end %>
       <% counter += 1 %>
     <% end %>
   </div>
@@ -66,6 +63,18 @@
 
 <!--/.Carousel Wrapper-->
 
+<!-- left and right controlls for  -->
+<script type="text/javascript">
+  const recipeShowLink = document.querySelector(".recipe-show-link")
+  const carouselControlPrev = document.querySelector(".carousel-control-prev")
+  const carouselControlNext = document.querySelector(".carousel-control-next")
+  document.addEventListener("keyup", (e) => {
+    console.log(e.keyCode)
+    if (e.keyCode == 32) {recipeShowLink.click()}
+    if (e.keyCode == 37) {carouselControlPrev.click()}
+    if (e.keyCode == 39) {carouselControlNext.click()}
+  });
+</script>
 
 
 
