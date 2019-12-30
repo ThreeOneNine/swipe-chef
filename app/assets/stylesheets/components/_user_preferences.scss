@@ -1,0 +1,44 @@
+.preference-title {
+  margin: 5vh auto;
+}
+
+.preference_form_container {
+  display: flex;
+  justify-content: center;
+}
+
+.preference_form {
+  width: 20vw;
+}
+
+.preference-submit {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $teal;
+  border-radius: 10px;
+  color: white;
+  transition: 0.5s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transform: translate(0, -2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  font-family: 'Rubik';
+}
+
+#preferences-background {
+  background-image: url("https://res.cloudinary.com/dr48k5zwm/image/upload/v1577463011/photo-1495195134817-aeb325a55b65_2_tfk46s.jpg");
+  background-size: cover;
+  height: calc(100vh - 74px);
+  color: white;
+}
+ .teal-text {
+   background-color: $teal;
+   border-radius: 3px;
+   padding: auto 8px;
+ }

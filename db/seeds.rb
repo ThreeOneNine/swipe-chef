@@ -20,7 +20,6 @@ collections = %w[ batch-cooking
                   casserole
                   healthy-lunch
                   family-meal
-                  dinner-party
                   vegetarian-party
                   stir-fry
                   tapas
