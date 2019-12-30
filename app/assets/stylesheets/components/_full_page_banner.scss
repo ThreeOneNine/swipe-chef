@@ -24,7 +24,17 @@
   flex-grow: 1;
 }
 
- .full-page-banner-img a {
+ .link-wrapper a {
+  text-decoration:none;
+  color: black;
+}
+
+.icon-sizing-home{
+  font-size: 13vh;
+  margin-left: 30px;
+}
+
+ .full-page-banner-img h2 {
   position:absolute;
   bottom:0;
   right:0;
@@ -34,9 +44,4 @@
   font-size: 30px;
   text-align: right;
   width: 300px;
-}
-
-.icon-sizing-home{
-  font-size: 13vh;
-  margin-left: 30px;
 }
