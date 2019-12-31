@@ -1,10 +1,13 @@
 .recipe-show-card {
   display:flex;
+  background: white;
   margin: 5vh auto;
   width: 80%;
+  padding: 30px;
+  border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  @include media-breakpoint-down(md) {
-   width: 60%;
+  @include media-breakpoint-down(sm) {
+   width: 100%;
    margin: 5% auto 0 auto;
  }
 }
@@ -21,6 +24,7 @@
 
 .recipe-img {
   height:100%;
+  min-width:100%;
   @include media-breakpoint-down(md) {
     height:auto;
     width: 100%
@@ -28,7 +32,7 @@
 }
 
 .recipe-header {
-  padding: 4%;
+  padding: 2.5% 4%;
   background: $teal;
   color: white;
   @include media-breakpoint-down(md) {
@@ -39,6 +43,7 @@
 .recipe-metrics-show {
   display:flex;
   justify-content: space-between;
+  margin-top:20px;
 }
 
 .recipe-metrics-show i {
@@ -46,7 +51,12 @@
 }
 
 .recipe-metrics-show span {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.recipe-metrics-show p {
+  margin: 0;
+  font-size: 18px;
 }
 
 .recipe-header-hidden {
@@ -84,22 +94,24 @@
 }
 
 .recipe-ingredients table {
-  width:80%;
+  width:85%;
   text-align: center;
-  border: 1px solid #CDCDCD;
+  border: 2px solid white;
 }
 
 tr:nth-child(even) {
   background: $teal;
   color: white;
+  font-size: 14px;
 }
 
 tr:nth-child(odd) {
-  background: #FFF
+  background: #FFF;
+  font-size: 14px;
 }
 
 .recipe-show-card h1 {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .recipe-show-card h2 {
@@ -109,7 +121,9 @@ tr:nth-child(odd) {
 .recipe-category {
   background: none;
   color: white;
-  border: 1px solid white;
-  padding: 5px;
-  border-radius: 3px;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px !important;
+  font-size: 16px;
 }
