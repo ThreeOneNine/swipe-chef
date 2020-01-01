@@ -1,14 +1,14 @@
 class UserPreferencesController < ApplicationController
   def index
-    if UserPreference.where(user: current_user).any?
-      @user_preference = UserPreference.where(user: current_user).first
+    if current_user.user_preferences.any?
+      @user_preference = current_user.user_preferences.first
     else
       @user_preference = UserPreference.new
     end
   end
 
   def update
-    @user_preference = UserPreference.where(user: current_user).first
+    @user_preference = current_user.user_preferences.first
     @user_preference.update!(strong_params)
 
     respond_to do |f|
