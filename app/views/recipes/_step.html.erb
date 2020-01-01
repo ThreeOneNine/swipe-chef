@@ -2,7 +2,7 @@
   <h2>DESCRIPTION</h2>
   <p><%= recipe.description %></p>
   <h2 id="step-count">STEP <%= @step %>/<%= recipe.steps.count %></h2>
-  <p id="step-description"><%= recipe.steps.reverse[@step - 1][:description] %></p>
+  <p id="step-description"><%= recipe.steps[@step - 1][:description] %></p>
   <%= link_to "/recipes/#{recipe.id}/previous_step/#{@step}", remote: true, id:"link-to-previous-step" do %>
     <img style=" height: 30px;" src="https://image.flaticon.com/icons/png/512/60/60775.png" alt="">
   <% end %>
