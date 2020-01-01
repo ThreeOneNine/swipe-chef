@@ -10,7 +10,7 @@
       </div>
       <div class="w-50">
         <div class="preference_form_container">
-          <%= simple_form_for @user_preference, html: { class: "preference_form" }, remote: :true  do |f| %>
+          <%= simple_form_for @user_preference, html: { class: "preference_form" }, remote: (current_user.user_preferences.any?)  do |f| %>
             <%= f.input :max_cooking_time, label: "Maximum cooking time" %>
             <%= f.input :cook_for_min, label: "Minimum servings" %>
             <%= f.input :cook_for_max, label: "Maximum servings" %>
