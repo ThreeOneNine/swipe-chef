@@ -21,7 +21,7 @@
           <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %></span>
           <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %></span>
           <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %></span>
-          <span class="recipe-category"><%= "#{@recipe.difficulty} | #{@recipe.category.capitalize}"%></span>
+          <span class="recipe-category"><%= "#{@recipe.difficulty} | #{clean_category_name(@recipe.category)}"%></span>
         </div>
       </div>
       <div class="row recipe-steps-and-ingredients">
@@ -44,9 +44,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-

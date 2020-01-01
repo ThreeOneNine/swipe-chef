@@ -89,7 +89,7 @@ collections.each_with_index do |collection, i|
                             video_url: '')
 
     # Creating ingredient from each ingredient HTML element
-    recipe_doc.search('.ingredients-list__item').each do |ingredient_li|
+    recipe_doc.search('.ingredients-list__item').reverse.each do |ingredient_li|
       ingredient_text = ingredient_li.inner_text
 
       # Using regex to remove tooltip text from ingredient description (if tooltip exists)
@@ -100,7 +100,7 @@ collections.each_with_index do |collection, i|
       Ingredient.create(recipe: recipe,
                         description: ingredient_text.strip)
     end
-    recipe_doc.search('.method__item').each_with_index do |method, i|
+    recipe_doc.search('.method__item').reverse.each_with_index do |method, i|
       Step.create(recipe: recipe,
                   number: (i + 1),
                   description: method.inner_text)
