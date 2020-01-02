@@ -42,8 +42,14 @@
   display: flex;
   height: 12vh;
   margin: 2vh auto;
+  overflow-y: scroll
 }
 
 .category-title {
   padding-top: 5vh;
+}
+
+#category-buttons-container {
+  overflow-y: scroll;
+  height: 70vh
 }
