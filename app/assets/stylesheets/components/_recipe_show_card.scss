@@ -22,6 +22,22 @@
   flex-direction: column;
 }
 
+a.escape-recipe {
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: black;
+  padding: 0px 0px 0px 0px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.escape-recipe:hover {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
 .recipe-img {
   height:100%;
   min-width:100%;
