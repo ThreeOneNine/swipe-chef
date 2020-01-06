@@ -3,6 +3,7 @@
     <div class="show-card-container-left">
       <div class="recipe-header-hidden">
         <h1><%= @recipe.title %></h1>
+        <%= link_to recipes_path, class:"escape-recipe" do %>
         <span><i class="far fa-clock"></i> prep time: <%= @recipe.prep_time %> mins | </span>
         <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %> mins |</span>
         <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %> people | </span>
@@ -11,6 +12,7 @@
       </div>
       <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
       <div class="recipe-summary">
+        <% end %>
       </div>
     </div>
   </div>
@@ -55,3 +57,13 @@
     </div>
   </div>
 </div>
+
+
+<!-- ESCAPE -->
+<script type="text/javascript">
+  const escapeRecipe = document.querySelector(".escape-recipe")
+  document.addEventListener("keyup", (e) => {
+    console.log(e.keyCode)
+    if (e.keyCode == 27) {escapeRecipe.click()}
+  });
+</script>
