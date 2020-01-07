@@ -1,3 +1,10 @@
+#categories-background {
+  background-image: url("https://res.cloudinary.com/dr48k5zwm/image/upload/v1577463011/photo-1495195134817-aeb325a55b65_2_tfk46s.jpg");
+  background-size: cover;
+  height: calc(100vh - 74px);
+  color: white;
+}
+
 .category-button {
   text-align: center;
   display: flex;
@@ -17,11 +24,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   font-family: 'Rubik';
-  font-size: 32px;
+  font-size: 20px;
 }
 
 .category-button-selected {
-  opacity: 50%;
+  filter: brightness(75%);
   box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.2);
   &:hover {
     box-shadow: inset 0 4px 2px rgba(0, 0, 0, 0.2);
@@ -33,10 +40,16 @@
 
 .category-button-container {
   display: flex;
-  height: 15vh;
-  margin: 32px auto;
+  height: 12vh;
+  margin: 2vh auto;
+  overflow-y: scroll
 }
 
 .category-title {
-  margin-top: 5vh;
+  padding-top: 5vh;
+}
+
+#category-buttons-container {
+  overflow-y: scroll;
+  height: 70vh
 }

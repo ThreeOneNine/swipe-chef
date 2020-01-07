@@ -1,6 +1,6 @@
 <div class="row">
 	<% @categories.each do |category| %>
-		<div class="col-4">
+		<div class="col-6 col-sm-4 col-md-3 col-lg-2">
 			<div class="category-button-container">
 				<% if @user_categories.include?(category) %>
 					<% uc = current_user.user_categories.where(category: category).first %>
