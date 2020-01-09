@@ -1,7 +1,6 @@
 class UserCategoriesController < ApplicationController
-  before_action :set_categories, only: %i[index]
-
   def index
+    set_categories
   end
 
   def destroy
@@ -23,6 +22,7 @@ class UserCategoriesController < ApplicationController
   def toggle_all
     set_categories
     if @user_categories == @categories
+      puts current_user.user_categories
       current_user.user_categories.each(&:destroy)
     else
       @categories.map do |category|
