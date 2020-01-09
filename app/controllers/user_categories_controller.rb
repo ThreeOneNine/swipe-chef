@@ -21,19 +21,16 @@ class UserCategoriesController < ApplicationController
 
   def toggle_all
     set_categories
-    if @user_categories == @categories
-      puts current_user.user_categories
+    if @user_categories.length == @categories.length
       current_user.user_categories.each(&:destroy)
     else
-      @categories.map do |category|
+      @categories.each do |category|
         unless @user_categories.include?(category)
-          uc = UserCategory.new
-          uc.category = category
-          uc.user = current_user
-          uc.save
+          UserCategory.create(category: category, user: current_user)
         end
       end
     end
+    set_categories
     index_ajax
   end
 
@@ -41,7 +38,8 @@ class UserCategoriesController < ApplicationController
 
   def set_categories
     @categories = Category.all
-    @user_categories = current_user.categories
+    # @user_categories = current_user.categories
+    @user_categories = UserCategory.where(user: current_user).map(&:category)
   end
 
   def index_ajax

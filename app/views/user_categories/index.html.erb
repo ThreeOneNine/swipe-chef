@@ -1,7 +1,7 @@
 <div id="categories-background">
 	<div class="container">
 		<h1 class="category-title">Select some foods you want to cook!</h1>
-		<%= link_to "test", user_categories_toggle_all_path %>
+		<%= link_to "test", user_categories_toggle_all_path, remote: true %>
 		<div id="category-buttons-container">
 			<%= render 'shared/user_categories_buttons' %>
 		</div>

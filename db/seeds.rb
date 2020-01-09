@@ -30,7 +30,7 @@ puts "Creating users with random categories and preferences"
 name_arr = %w[rob emma joe ben tilly ollie]
 name_arr.each do |name|
   user = User.create(email: "#{name}@swipechef.com", password: '123456')
-  Category.all.shuffle.sample(rand(0..5)).each do |category|
+  Category.all.shuffle.sample(rand(1..5)).each do |category|
     UserCategory.create(user: user, category: category)
   end
   UserPreference.create(user: user,
