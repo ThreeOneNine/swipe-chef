@@ -5,6 +5,36 @@
   color: white;
 }
 
+.category-title-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+#toggle-all-categories-button {
+  align-self: center;
+  margin-left: 5%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: $teal;
+  background-color: white;
+  font-family: 'Rubik';
+  font-size: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+  transition: 0.3s ease;
+  &:hover {
+    color: $teal;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .category-button-container {
   display: flex;
   height: 12vh;
@@ -24,7 +54,7 @@
   color: $teal;
   background-color: white;
   transition: 0.5s ease;
-  filter: opacity(80%);
+  filter: opacity(75%);
   &:hover {
     text-decoration: none;
     color: $teal;
@@ -44,7 +74,7 @@
 }
 
 .category-title {
-  padding-top: 5vh;
+  margin: 0;
 }
 
 #category-buttons-container {
