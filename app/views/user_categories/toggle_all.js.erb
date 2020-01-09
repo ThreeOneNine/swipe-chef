@@ -1,0 +1,7 @@
+function refreshCategories(innerHTML) {
+	const categoryButtonsContainer = document.getElementById('category-buttons-container');
+	categoryButtonsContainer.innerHTML = innerHTML;
+}
+
+refreshCategories('<%= j render partial: "shared/user_categories_buttons" %>')
+console.log("JS Ran")
