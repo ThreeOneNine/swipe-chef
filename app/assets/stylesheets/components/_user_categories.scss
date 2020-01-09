@@ -5,6 +5,14 @@
   color: white;
 }
 
+.category-button-container {
+  display: flex;
+  height: 12vh;
+  margin: 2vh auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .category-button {
   text-align: center;
   display: flex;
@@ -38,18 +46,12 @@
   }
 }
 
-.category-button-container {
-  display: flex;
-  height: 12vh;
-  margin: 2vh auto;
-  overflow-y: scroll
-}
-
 .category-title {
   padding-top: 5vh;
 }
 
 #category-buttons-container {
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 70vh
 }
