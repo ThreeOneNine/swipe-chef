@@ -7,7 +7,7 @@
 
 .category-title-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 5vh 0;
 }
@@ -81,4 +81,15 @@
   overflow-y: scroll;
   overflow-x: hidden;
   height: 70vh
+}
+
+.back-to-recipes {
+  margin: 0 auto;
+  color: white;
+  font-size: 30px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity:0.8;
+  }
 }
