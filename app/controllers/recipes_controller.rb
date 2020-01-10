@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
   private
 
   def recipes_based_on_preference
-    if user_signed_in? && current_user.user_preferences.any?
+    if user_signed_in? && current_user.user_preferences.any? && current_user.categories.any?
       user_category_arr = []
       user_preferences = current_user.user_preferences.first
       current_user.categories.each { |category| user_category_arr << category.name }
