@@ -31,7 +31,7 @@
               <div class="card-body">
                 <h4 class="recipe-card-title"><%= recipe.title %></h4>
                 <span class="category-and-difficulty"><%= recipe.difficulty %></span>
-                <span class="category-and-difficulty"><%= recipe.category.capitalize %></span>
+                <span class="category-and-difficulty"><%= clean_category_name(recipe.category) %></span>
                 <div class="recipe-metrics">
                 <div class="recipe-metrics-card">
                   <h2><i class="far fa-clock"></i>Prep Time</h2>
@@ -75,6 +75,7 @@
     if (e.keyCode == 39) {carouselControlNext.click()}
   });
 
+
   document.addEventListener("wheel", (e) => {
     if(e.deltaX > 40) {
       carouselControlNext.click()
@@ -87,3 +88,4 @@
 <style>
   body { overscroll-behavior-x: none; }
 </style>
+
