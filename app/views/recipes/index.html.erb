@@ -77,10 +77,14 @@
 
   document.addEventListener("wheel", (e) => {
     console.log(e)
-    if(e.deltaX > 25) {
+    if(e.deltaX > 40) {
       carouselControlNext.click()
-    } else if (e.deltaX < -25) {
+    } else if (e.deltaX < -40) {
       carouselControlPrev.click()
     }
   })
 </script>
+
+<style>
+  body { overscroll-behavior-x: none; }
+</style>
