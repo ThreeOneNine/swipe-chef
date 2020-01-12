@@ -3,26 +3,12 @@
 }
 
 .preference_form_container {
-  width: 100%;
   display: flex;
   justify-content: center;
-  @include media-breakpoint-down(xs) {
-    width: 70%;
-  }
-  @include media-breakpoint-up(sm) {
-    width: 60%;
-  }
-  @include media-breakpoint-up(md) {
-    width: 40%;
-  }
-  @include media-breakpoint-up(lg) {
-    width: 30%;
-  }
 }
 
 .preference_form {
-  width: 100%;
-  font-size: 20px;
+  width: 20vw;
 }
 
 .preference-submit {
@@ -36,8 +22,6 @@
   color: white;
   transition: 0.5s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 8px;
-  margin-top: 30px;
   &:hover {
     text-decoration: none;
     color: white;
@@ -58,26 +42,3 @@
    border-radius: 3px;
    padding: auto 8px;
  }
-
-#preference-indicator {
-  @include media-breakpoint-down(xs) {
-    text-align: center;
-    margin: 0 auto;
-    width: 90%;
-  }
-  @include media-breakpoint-up(sm) {
-    text-align: center;
-    width: 100%;
-  }
-
-  @include media-breakpoint-up(md) {
-    margin: 0 5vw 0 0;
-    text-align: left;
-    width: 50%;
-  }
-
-  @include media-breakpoint-up(lg) {
-    text-align: left;
-    width: 50%;
-  }
-}
