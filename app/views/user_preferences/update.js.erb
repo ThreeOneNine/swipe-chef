@@ -4,3 +4,4 @@ function refreshText(innerHTML) {
 }
 
 refreshText('<h1 class="preference-title">Showing recipes under <span class="teal-text">&nbsp<%= @user_preference.max_cooking_time %>&nbsp</span></%> minutes long, serving between <span class="teal-text">&nbsp<%= @user_preference.cook_for_min %>&nbsp</span> and <span class="teal-text">&nbsp<%= @user_preference.cook_for_max %>&nbsp</span> people</h1>')
+ $(window.location.replace("/recipes/"))

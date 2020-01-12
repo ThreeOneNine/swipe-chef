@@ -7,5 +7,14 @@
 		<div id="category-buttons-container">
 			<%= render 'shared/user_categories_buttons' %>
 		</div>
+  <%= link_to "Back to recipes", recipes_path, class:"back-to-recipes" %>
 	</div>
 </div>
+
+<!-- Enter to return to recipes -->
+<script type="text/javascript">
+  const backToRecipes = document.querySelector(".back-to-recipes")
+  document.addEventListener("keyup", (e) => {
+    if (e.keyCode == 13) {backToRecipes.click()}
+  });
+</script>
