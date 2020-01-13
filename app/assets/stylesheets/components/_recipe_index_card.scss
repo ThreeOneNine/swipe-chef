@@ -9,33 +9,41 @@
   @include media-breakpoint-up(xs) {
     width: 90vw;
     min-height: 80vh;
-    margin-bottom: 5vh;
-    margin-top: 5vh;
+    margin-bottom: 10vh;
+    margin-top: 1.5vh;
+    flex-direction: column;
+    height: 50vh;
   }
 
   @include media-breakpoint-up(sm) {
     width: 90vw;
     min-height: 60vh;
-    margin-bottom: 15vh;
-    margin-top: 15vh;
+    margin-bottom: 10vh;
+    margin-top: 5vh;
+    flex-direction: row;
+    height: 80vh;
   }
   @include media-breakpoint-up(md) {
     width: 80vw;
     min-height: 50vh;
-    margin-bottom: 15vh;
-    margin-top: 15vh;
+    margin-bottom: 10vh;
+    margin-top: 3vh;
+    flex-direction: row;
+    height: 80vh;
   }
   @include media-breakpoint-up(lg) {
     width: 60vw;
     min-height: 50vh;
-    margin-bottom: 15vh;
-    margin-top: 15vh;
+    margin-bottom: 10vh;
+    margin-top: 3vh;
+    flex-direction: row;
   }
   @include media-breakpoint-up(xl) {
     width: 60vw;
     min-height: 50vh;
-    margin-bottom: 15vh;
-    margin-top: 15vh;
+    margin-bottom: 10vh;
+    margin-top: 3vh;
+    flex-direction: row;
   }
 }
 
@@ -44,6 +52,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 .recipe-index-card-text-wrapper {
@@ -51,6 +60,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-right: 5%;
+  height: 50vh;
 
 }
 
@@ -62,13 +72,16 @@
   line-height: 60px;
   margin: 0px 0px 15px 0px;
   @include media-breakpoint-up(xs) {
-    font-size: 5vh;
+    font-size: 3vh;
+    line-height: 25px;
   }
   @include media-breakpoint-up(sm) {
-    font-size: 5vh;
+    font-size: 3vh;
+    line-height: 25px;
   }
   @include media-breakpoint-up(md) {
-    font-size: 5vh;
+    font-size: 3vh;
+    line-height: 25px;
   }
 }
 
@@ -92,12 +105,14 @@ a.recipe-show-link {
   background: $teal;
   padding: 20px;
   width: 100%;
+  overflow: hidden;
 }
 
 .recipe-metrics {
   display: flex;
   flex-direction: column;
   margin-top: 3vh;
+  overflow: hidden;
 }
 .recipe-metrics-card {
   display:flex;
@@ -117,6 +132,7 @@ a.recipe-show-link {
   margin: 10px 5px 10px 0px;
   color: white;
   background: none;
+  font-size: 2vh;
 }
 
 .recipe-metrics-card i {
@@ -131,12 +147,31 @@ a.recipe-show-link {
   margin: 0;
   font-weight:bold;
   font-size: 20px;
+  @include media-breakpoint-up(xs) {
+  font-size: 2vh;
+  }
+  @include media-breakpoint-up(sm) {
+    font-size: 2vh;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 2vh;
+  }
 }
 
 .recipe-metrics-card h2 {
   color: gray;
   margin: 0;
   font-size: 20px;
+
+  @include media-breakpoint-up(xs) {
+    font-size: 2vh;
+  }
+  @include media-breakpoint-up(sm) {
+    font-size: 2vh;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 2vh;
+  }
 }
 
 .index-swipe-arrows {
