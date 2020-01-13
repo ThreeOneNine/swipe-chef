@@ -9,33 +9,33 @@
   @include media-breakpoint-up(xs) {
     width: 90vw;
     min-height: 80vh;
-    margin-bottom: 10vh;
-    margin-top: 1.5vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
   }
 
   @include media-breakpoint-up(sm) {
     width: 90vw;
     min-height: 60vh;
-    margin-bottom: 10vh;
-    margin-top: 5vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
   }
   @include media-breakpoint-up(md) {
     width: 80vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
   }
   @include media-breakpoint-up(lg) {
     width: 60vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
   }
   @include media-breakpoint-up(xl) {
     width: 60vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
   }
 }
 
@@ -90,7 +90,6 @@ a.recipe-show-link {
 
 .card-body {
   background: $teal;
-  height: 100%;
   padding: 20px;
   width: 100%;
 }
@@ -138,4 +137,16 @@ a.recipe-show-link {
   color: gray;
   margin: 0;
   font-size: 20px;
+}
+
+// .index-swipe-arrows {
+//   position: absolute;
+//   top: 40vh;
+//   height: 30px;
+// }
+
+.index-swipe-arrows {
+  position: absolute;
+  top: 40vh;
+  height: 30px;
 }
