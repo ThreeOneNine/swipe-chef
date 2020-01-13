@@ -67,7 +67,6 @@
     if (e.keyCode == 39) {carouselControlNext.click()}
   });
 
-
   document.addEventListener("wheel", (e) => {
     if(e.deltaX > 40) {
       carouselControlNext.click()
@@ -75,6 +74,10 @@
       carouselControlPrev.click()
     }
   })
+
+  const navHeight = document.querySelector('.navbar').clientHeight;
+  const carousel = document.querySelector('.carousel-inner');
+  carousel.setAttribute("style",`max-height: calc(100vh - ${navHeight}px)`);
 </script>
 
 <style>
