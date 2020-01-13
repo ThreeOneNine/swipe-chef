@@ -103,7 +103,6 @@ a.recipe-show-link {
 
 .card-body {
   background: $teal;
-  height: 100%;
   padding: 20px;
   width: 100%;
   overflow: hidden;
@@ -172,5 +171,15 @@ a.recipe-show-link {
   }
   @include media-breakpoint-up(md) {
     font-size: 2vh;
+  }
+}
+
+.index-swipe-arrows {
+  position: absolute;
+  top: 40vh;
+  height: 30px;
+
+  @include media-breakpoint-down(sm) {
+    display:none;
   }
 }
