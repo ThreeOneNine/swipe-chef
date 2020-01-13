@@ -21,4 +21,16 @@
     if (e.keyCode === 39) nextStep.click();
     if (e.keyCode === 37) previousStep.click();
   });
+
+  document.addEventListener("wheel", (e) => {
+    if(e.deltaX > 40) {
+      nextStep.click();
+    } else if (e.deltaX < -40) {
+      previousStep.click();
+    }
+  })
 </script>
+
+<style>
+  body { overscroll-behavior-x: none; }
+</style>
