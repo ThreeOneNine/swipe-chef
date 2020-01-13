@@ -9,40 +9,37 @@
   @include media-breakpoint-up(xs) {
     width: 90vw;
     min-height: 80vh;
-    margin-bottom: 10vh;
-    margin-top: 1.5vh;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
     flex-direction: column;
-    height: 50vh;
   }
 
   @include media-breakpoint-up(sm) {
     width: 90vw;
-    min-height: 60vh;
-    margin-bottom: 10vh;
+    min-height: 80vh;
+    margin-bottom: 5vh;
     margin-top: 5vh;
-    flex-direction: row;
-    height: 80vh;
+    flex-direction: column;
   }
   @include media-breakpoint-up(md) {
     width: 80vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 3vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
     flex-direction: row;
-    height: 80vh;
   }
   @include media-breakpoint-up(lg) {
     width: 60vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 3vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
     flex-direction: row;
   }
   @include media-breakpoint-up(xl) {
-    width: 60vw;
+    width: 50vw;
     min-height: 50vh;
-    margin-bottom: 10vh;
-    margin-top: 3vh;
+    margin-bottom: 15vh;
+    margin-top: 15vh;
     flex-direction: row;
   }
 }
@@ -52,7 +49,11 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  min-height: 100%;
+  @include media-breakpoint-down(sm) {
+    height: 30vh;
+
+  }
 }
 
 .recipe-index-card-text-wrapper {
@@ -60,7 +61,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-right: 5%;
-  height: 50vh;
+  min-height: 100%;
 
 }
 
@@ -69,19 +70,16 @@
   color:white;
   font-size: 5vh;
   font-weight: 400;
-  line-height: 60px;
   margin: 0px 0px 15px 0px;
+  padding-bottom: 10px;
   @include media-breakpoint-up(xs) {
     font-size: 3vh;
-    line-height: 25px;
   }
   @include media-breakpoint-up(sm) {
     font-size: 3vh;
-    line-height: 25px;
   }
   @include media-breakpoint-up(md) {
     font-size: 3vh;
-    line-height: 25px;
   }
 }
 
@@ -111,7 +109,7 @@ a.recipe-show-link {
 .recipe-metrics {
   display: flex;
   flex-direction: column;
-  margin-top: 3vh;
+  margin-top: 1vh;
   overflow: hidden;
 }
 .recipe-metrics-card {
@@ -128,11 +126,13 @@ a.recipe-show-link {
 .category-and-difficulty {
   border: 2px solid white;
   border-radius: 10px;
-  padding: 10px;
-  margin: 10px 5px 10px 0px;
+  padding: 8px;
+  margin: 5px 5px 5px 0px;
   color: white;
   background: none;
   font-size: 2vh;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .recipe-metrics-card i {
@@ -148,7 +148,7 @@ a.recipe-show-link {
   font-weight:bold;
   font-size: 20px;
   @include media-breakpoint-up(xs) {
-  font-size: 2vh;
+    font-size: 2vh;
   }
   @include media-breakpoint-up(sm) {
     font-size: 2vh;
