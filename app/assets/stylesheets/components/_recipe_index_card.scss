@@ -139,14 +139,12 @@ a.recipe-show-link {
   font-size: 20px;
 }
 
-// .index-swipe-arrows {
-//   position: absolute;
-//   top: 40vh;
-//   height: 30px;
-// }
-
 .index-swipe-arrows {
   position: absolute;
   top: 40vh;
   height: 30px;
+
+  @include media-breakpoint-down(sm) {
+    display:none;
+  }
 }
