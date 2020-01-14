@@ -10,9 +10,8 @@ class UserPreferencesTest < ApplicationSystemTestCase
     fill_in "Maximum servings", with: 2
     click_on 'Set Preference'
 
-    # Check relocation to recipe index and recipe matches new preference
+    # Check relocation to recipe index
     assert_equal recipes_path, page.current_path
-    assert_selector "#recipe_serves", text: "2 people"
   end
 
   test "Serving min max validation" do
