@@ -10,27 +10,24 @@ class UserPreferencesTest < ApplicationSystemTestCase
     fill_in "Maximum servings", with: 2
     click_on 'Set Preference'
 
-    # Check recipe displayed at index matches new preference
-    visit recipes_path
+    # Check relocation to recipe index and recipe matches new preference
+    assert_equal recipes_path, page.current_path
     assert_selector "#recipe_serves", text: "2 people"
   end
 
-  test "Redirects after preference updated" do
+  test "Serving min max validation" do
     login_as users(:user_1)
     visit user_preferences_path
 
     fill_in "Maximum cooking time", with: 50
-    fill_in "Minimum servings", with: 2
-    fill_in "Maximum servings", with: 2
+    fill_in "Minimum servings", with: 4
+    fill_in "Maximum servings", with: 3
     click_on 'Set Preference'
 
-    fill_in "Maximum cooking time", with: 70
-    fill_in "Minimum servings", with: 2
-    fill_in "Maximum servings", with: 10
-    click_on 'Set Preference'
+    # Should stay on same page
+    assert_equal user_preferences_path, page.current_path
 
-
-    # Should be redirected to recipes index
-    assert_equal recipes_path, page.current_path
+    # Should load error message
+    assert_selector "div.invalid-feedback", count: 1
   end
 end
