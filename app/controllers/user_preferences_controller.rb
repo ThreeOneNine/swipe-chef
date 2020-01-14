@@ -10,7 +10,7 @@ class UserPreferencesController < ApplicationController
   def update
     @user_preference = current_user.user_preferences.first
     @user_preference.update!(strong_params)
-    index_ajax
+    redirect_to recipes_path
   end
 
   def create

@@ -14,7 +14,23 @@ class UserPreferencesTest < ApplicationSystemTestCase
     visit recipes_path
     assert_selector "#recipe_serves", text: "2 people"
   end
-end
 
-# # Should be redirected to recipes index
-# assert_equal recipes_path, page.current_path
+  test "Redirects after preference updated" do
+    login_as users(:user_1)
+    visit user_preferences_path
+
+    fill_in "Maximum cooking time", with: 50
+    fill_in "Minimum servings", with: 2
+    fill_in "Maximum servings", with: 2
+    click_on 'Set Preference'
+
+    fill_in "Maximum cooking time", with: 70
+    fill_in "Minimum servings", with: 2
+    fill_in "Maximum servings", with: 10
+    click_on 'Set Preference'
+
+
+    # Should be redirected to recipes index
+    assert_equal recipes_path, page.current_path
+  end
+end
