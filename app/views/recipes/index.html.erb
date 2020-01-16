@@ -12,14 +12,6 @@
   </a>
   <!--/.Controls-->
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-  </ol>
-  <!--/.Indicators-->
-
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
     <% counter = 0 %>
@@ -83,6 +75,10 @@
       carouselControlPrev.click()
     }
   })
+
+  const navHeight = document.querySelector('.navbar').clientHeight;
+  const carousel = document.querySelector('.carousel-inner');
+  carousel.setAttribute("style",`max-height: calc(100vh - ${navHeight}px)`);
 
   window.addEventListener('load', (event) => {
     if(screen.width <= 480) {
