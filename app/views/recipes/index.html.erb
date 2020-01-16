@@ -76,7 +76,6 @@
     if (e.keyCode == 39) {carouselControlNext.click()}
   });
 
-
   document.addEventListener("wheel", (e) => {
     if(e.deltaX > 40) {
       carouselControlNext.click()
@@ -84,9 +83,14 @@
       carouselControlPrev.click()
     }
   })
+
+  window.addEventListener('load', (event) => {
+    if(screen.width <= 480) {
+      carouselControlNext.click()
+    }
+  });
 </script>
 
 <style>
   body { overscroll-behavior-x: none; }
 </style>
-
