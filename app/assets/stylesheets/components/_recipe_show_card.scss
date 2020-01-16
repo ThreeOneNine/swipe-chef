@@ -6,10 +6,30 @@
   padding: 30px;
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  @include media-breakpoint-down(sm) {
-   width: 100%;
-   margin: 5% auto 0 auto;
- }
+  @include media-breakpoint-up(xs) {
+    width: 95vw;
+    margin-top: 2.5vw;
+  }
+  @include media-breakpoint-up(sm) {
+    width: 90vw;
+    margin-top: 5vw;
+  }
+  @include media-breakpoint-up(md) {
+    width: 80vw;
+    margin-top: 5vh;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 70vw;
+    margin-top: 5vh;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 75vw;
+    margin-top: 7vh;
+  }
+  @media (min-width: 1700px) {
+    width: 65vw;
+    margin-top: 7vh;
+  }
 }
 
 .show-card-container-left {
@@ -80,6 +100,10 @@ a.escape-recipe {
   padding: 4%;
   background: $teal;
   color: white;
+  span {
+    color:white;
+    font-size: 2.5vh;
+  }
   @include media-breakpoint-down(md) {
     display: block;
     height: auto
@@ -127,7 +151,15 @@ tr:nth-child(odd) {
 }
 
 .recipe-show-card h1 {
+  @include media-breakpoint-up(xs) {
+    font-size: 25px;
+  }
+  @include media-breakpoint-up(sm) {
+  font-size: 35px;
+  }
+  @include media-breakpoint-up(lg) {
   font-size: 40px;
+  }
 }
 
 .recipe-show-card h2 {
