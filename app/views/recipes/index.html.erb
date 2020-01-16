@@ -18,31 +18,32 @@
     <% @recipes.each do |recipe| %>
       <div class="carousel-item <%= "active" if counter == 0 %>">
         <%= link_to recipe_path(recipe), class:"recipe-show-link" do %>
-        <div class="recipe-index-card">
-          <div style="background-image: url(http://<%= recipe.img_url %>)" class='recipe-index-card-image-wrapper'></div>
-              <div class="card-body">
-                <h4 class="recipe-card-title"><%= recipe.title %></h4>
-                <span class="category-and-difficulty"><%= recipe.difficulty %></span>
-                <span class="category-and-difficulty"><%= clean_category_name(recipe.category) %></span>
-                <div class="recipe-metrics">
-                <div class="recipe-metrics-card">
-                  <h2><i class="far fa-clock"></i>Prep Time</h2>
-                  <p><%= recipe.prep_time %> mins</p>
-                </div>
-                <div class="recipe-metrics-card">
-                  <h2><i class="fas fa-temperature-high"></i>Cook Time</h2>
-                  <p><%= recipe.cook_time %> mins</p>
-                </div>
-                <div class="recipe-metrics-card">
-                  <h2><i class="fas fa-user-friends"></i>Serves</h2>
-                  <p><%= recipe.serves %> people</p>
-                </div>
-                <div class="recipe-metrics-card">
-                  <h2><i class="fas fa-pepper-hot"></i>Ingredients</h2>
-                  <p><%= recipe.ingredients_count %></p>
-                </div>
+        <div class="recipe-index-card row">
+          <div style="background-image: url(http://<%= recipe.img_url %>);" class='recipe-index-card-image-wrapper col-md-6'>
+          </div>
+          <div class="card-body col-md-6">
+            <h4 class="recipe-card-title"><%= recipe.title %></h4>
+            <span class="category-and-difficulty"><%= recipe.difficulty %></span>
+            <span class="category-and-difficulty"><%= clean_category_name(recipe.category) %></span>
+            <div class="recipe-metrics">
+              <div class="recipe-metrics-card">
+                <h2><i class="far fa-clock"></i>Prep Time</h2>
+                <p id="recipe_prep_time"><%= recipe.prep_time %> mins</p>
+              </div>
+              <div class="recipe-metrics-card">
+                <h2><i class="fas fa-temperature-high"></i>Cook Time</h2>
+                <p id="recipe_cook_time"><%= recipe.cook_time %> mins</p>
+              </div>
+              <div class="recipe-metrics-card">
+                <h2><i class="fas fa-user-friends"></i>Serves</h2>
+                <p id="recipe_serves"><%= recipe.serves %> people</p>
+              </div>
+              <div class="recipe-metrics-card">
+                <h2><i class="fas fa-pepper-hot"></i>Ingredients</h2>
+                <p><%= recipe.ingredients_count %></p>
               </div>
             </div>
+          </div>
         </div>
       </div>
       <% end %>
@@ -78,6 +79,12 @@
   const navHeight = document.querySelector('.navbar').clientHeight;
   const carousel = document.querySelector('.carousel-inner');
   carousel.setAttribute("style",`max-height: calc(100vh - ${navHeight}px)`);
+
+  window.addEventListener('load', (event) => {
+    if(screen.width <= 480) {
+      carouselControlNext.click()
+    }
+  });
 </script>
 
 <style>
