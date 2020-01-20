@@ -22,11 +22,16 @@
     if (e.keyCode === 37) previousStep.click();
   });
 
+
+  prev_time = Date.now()
   document.addEventListener("wheel", (e) => {
-    if(e.deltaX > 40) {
+  active_time = Date.now()
+    if(e.deltaX > 40 && active_time - prev_time > 750) {
       nextStep.click();
-    } else if (e.deltaX < -40) {
+      prev_time = active_time
+    } else if (e.deltaX < -40 && active_time - prev_time > 750) {
       previousStep.click();
+      prev_time = active_time
     }
   })
 </script>

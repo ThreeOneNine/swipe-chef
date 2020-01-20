@@ -9,7 +9,7 @@
         <span><i class="fas fa-temperature-high"></i> cook time: <%= @recipe.cook_time %> mins |</span>
         <span><i class="fas fa-user-friends"></i> serves: <%= @recipe.serves %> people | </span>
         <span> difficulty: <%= @recipe.difficulty%> | </span>
-        <span> category: <%= @recipe.category.capitalize%></span>
+        <span> category: <%= clean_category_name(@recipe.category)%></span>
       </div>
       <img class="recipe-img" src="https://<%= @recipe.img_url %>" alt="">
       <div class="recipe-summary">
@@ -34,7 +34,7 @@
             <p><%= @recipe.serves %> people</p>
           </div>
           <p class="recipe-category"><%= @recipe.difficulty%></p>
-          <p class="recipe-category"><%= @recipe.category.capitalize%></p>
+          <p class="recipe-category"><%= clean_category_name(@recipe.category)%></p>
         </div>
       </div>
       <div class="row recipe-steps-and-ingredients">
