@@ -10,3 +10,10 @@ Recipe speed dating for uninspired foodies (*'the tinder of recipes'*)
 # Features in development 
 - Comment on and favourite recipes
 - Follow your friends and their favourite recipes for more food inspiration
+
+# Tech
+- Ruby on Rails
+- PostgreSQL
+- Javascript
+- HTML/CSS/Bootstrap
+- AJAX
